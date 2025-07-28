@@ -1,11 +1,77 @@
-@use "../utilities/variables" as *;
-@use "../utilities/mixins" as *;
-@use "../utilities/funciones" as *;
-@use "../base/typo" as *;
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/funciones";
+@use "../base/typo";
 
 header{
-    height: 7rem;
-    background-color: usarColor(fondoSecundario);
-    box-shadow: 0 4px 6px usarColor(alternativa2);
-    
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: 1fr 1fr;
+    height: 13vh;
+    width: 100vw;
+    background-color: funciones.usarColor(fondoSecundario);
+    box-shadow: 0 4px 6px funciones.usarColor(alternativa2);
+
+    img{
+        grid-column: 1;
+        grid-row-start: 1;
+        grid-row-end: 3;
+        justify-self: center;
+        align-self: center;
+        object-fit: cover;
+        width: 58%;
+        border-radius: 50%;
+        padding: .625rem;
+    }
+    nav{
+        display: grid;
+        grid-column-start: 2;
+        grid-column-end: 10;
+        grid-row: 2;
+        ul{
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: 1fr;
+            list-style: none;
+        }
+        @for $i from 1 through 3{
+            ul li:nth-child(#{$i}){
+                grid-column: #{$i};
+                text-align: center;
+            }
+        }
+        ul li:nth-child(4){
+            grid-column: 6;
+            text-align: center;
+        }
+        ul li:nth-child(5){
+            grid-column-start: 7;
+            grid-column-end: 9;
+            text-align: center;
+        }
+
+    }
+    a{
+        grid-row: 1;
+        grid-column: 9;
+        justify-self: center;
+        align-self: center;
+        &:hover{
+            color: funciones.usarColor(elementosReactivos1);
+        }
+        &:active{
+            color: funciones.usarColor(elementosReactivos2);
+        }
+    }
+    .search{
+        grid-column-start: 2;
+        grid-column-end: 9; 
+        background-color: funciones.usarColor(textoPrincipal);
+        border-radius: 16px;
+        width: 50vw;
+        height: 1.85rem;
+        align-self: center;
+        justify-self: center;
+    }
 }

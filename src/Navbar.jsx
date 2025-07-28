@@ -1,18 +1,23 @@
 import { CartWidget } from './CartWidget';
 
+
 export function Navbar() {
-
-
+    
     return (
-        <nav>
-            <ul>
-                <li><a href="#">hola</a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-                <li><a href="#"></a></li>
-            </ul>
+        <header>
+            <img src="../assets/img/logo.png" alt="Logo" />
+            <div class="search"></div>
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">Ingresá</a></li>
+                    <li><a href="#">Creá tu Cuenta</a></li>
+                </ul>
+            </nav>
             <CartWidget/>
-        </nav>
+        </header>
+        
     )
 }

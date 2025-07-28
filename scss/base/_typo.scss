@@ -3,26 +3,26 @@ $font-family: "Inter", sans-serif;
 
 @mixin font-tPrimarios{
     font-family: $font-family;
-    font-size: 3.75rem;
+    font-size: 3rem;
     font-weight: bold;
     font-style: italic;
     color: usarColor(textoPrincipal);
 }
 @mixin font-tSecundario{  
     font-family: $font-family;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 750;
     color: usarColor(textoPrincipal);
 }
 @mixin font-tRegular{
     font-family: $font-family;
-    font-size: 1.75rem;
+    font-size: 1.35rem;
     font-weight: normal;
     color: usarColor(textoPrincipal);
 }
 @mixin font-tSmall{
     font-family: $font-family;
-    font-size: 1.375rem;
+    font-size: 1.1rem;
     font-weight: normal;
     color: usarColor(textoPrincipal);
 }

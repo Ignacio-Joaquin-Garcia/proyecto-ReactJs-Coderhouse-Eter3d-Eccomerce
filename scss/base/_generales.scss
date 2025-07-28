@@ -1,13 +1,18 @@
-@use "../utilities/variables" as *;
-@use "../utilities/mixins" as *;
-@use "../utilities/funciones" as *;
-@use "../base/typo" as *;
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/funciones";
+@use "../base/typo";
 
 body{
-    background-color: usarColor(fondoPrincipal);
+    background-color: funciones.usarColor(fondoPrincipal);
+}
+
+:is(h1,h2,h3,h4,p,a,legend, img){
+    color: funciones.usarColor(textoPrincipal);
+    @include typo.font-tSmall;
 }
 
 a{
-    @include font-tRegular;
-    color: usarColor(iconosELinks);
+    @include typo.font-tRegular;
+    color: funciones.usarColor(iconosELinks);
 }
