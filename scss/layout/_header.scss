@@ -1,0 +1,11 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/funciones" as *;
+@use "../base/typo" as *;
+
+header{
+    height: 7rem;
+    background-color: usarColor(fondoSecundario);
+    box-shadow: 0 4px 6px usarColor(alternativa2);
+    
+}

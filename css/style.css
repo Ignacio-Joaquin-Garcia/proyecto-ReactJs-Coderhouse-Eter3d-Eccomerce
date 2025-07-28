@@ -1,0 +1,40 @@
+/*  Variables, Mixins y Funciones   */
+/*  Correspondiente al codigo general   */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Pacifico&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: usarColor(textoPrincipal);
+}
+
+/*  Variables, Mixins y Funciones   */
+/*  Correspondiente al codigo general   */
+body {
+  background-color: #0F0F0F;
+}
+
+a {
+  font-family: "Inter", sans-serif;
+  font-size: 1.75rem;
+  font-weight: normal;
+  color: usarColor(textoPrincipal);
+  color: #4DD0E1;
+}
+
+/*  Importamos el Layout  */
+/*  Variables, Mixins y Funciones   */
+/*  Correspondiente al codigo general   */
+header {
+  height: 7rem;
+  background-color: #2A2A2A;
+  box-shadow: 0 4px 6px #B2EBF2;
+}
+
+/*  Variables, Mixins y Funciones   */
+/*  Correspondiente al codigo general   */
+/* Layout de Views */
+/* Importamos componentes */
+/*  Correspondiente a las mediaQ  */
+
+/*# sourceMappingURL=style.css.map */

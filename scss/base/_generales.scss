@@ -1,0 +1,13 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/funciones" as *;
+@use "../base/typo" as *;
+
+body{
+    background-color: usarColor(fondoPrincipal);
+}
+
+a{
+    @include font-tRegular;
+    color: usarColor(iconosELinks);
+}
