@@ -12,7 +12,11 @@
 
 
 
-/* Importamos componentes */
-
+/* Importamos componentes con Logica*/
+@use "components/button";
+@use "components/cardContainer";
+/* Importamos componentes Estaticos*/
+@use "components/static/presentation";
+@use "components/static/cardProduct";
 
 /*  Correspondiente a las mediaQ  */

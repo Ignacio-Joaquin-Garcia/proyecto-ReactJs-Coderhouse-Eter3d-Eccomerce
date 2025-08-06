@@ -1,6 +1,13 @@
 import { useState } from 'react';
-import { Navbar } from "./Navbar"
-import { ItemListContainer } from "./ItemListContainer";
+
+import { Navbar } from "./features/Navbar"
+import { Footer } from './static/Footer';
+
+import { ItemListContainer } from "./components/ItemListContainer";
+import { Button } from './features/Button';
+import { CardContainer } from './features/CardContainer';
+
+import { Presentation } from './static/Presentation';
 
 function App() {
   const [default1, set] = useState(`Ignacio`) 
@@ -12,9 +19,14 @@ function App() {
     <>
       <Navbar/>
       <main>
+        <Presentation/>
+
+        <CardContainer/>
+
         <ItemListContainer nombre={default1}/> 
-        <button onClick={cambiar}>Click Me</button>
+        <Button onClick={cambiar} text={"Clickeame"}/>
       </main>
+      <Footer/>
     </>
   )
 }

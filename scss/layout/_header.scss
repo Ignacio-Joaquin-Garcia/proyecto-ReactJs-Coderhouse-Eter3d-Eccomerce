@@ -9,9 +9,9 @@ header{
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: 1fr 1fr;
     height: 13vh;
-    width: 100vw;
-    background-color: funciones.usarColor(fondoSecundario);
-    box-shadow: 0 4px 6px funciones.usarColor(alternativa2);
+    width: 100%;
+    background-color: funciones.usarColor(fondoPrincipal);
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.365);
 
     img{
         grid-column: 1;

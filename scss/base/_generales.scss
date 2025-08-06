@@ -4,11 +4,10 @@
 @use "../base/typo";
 
 body{
-    background-color: funciones.usarColor(fondoPrincipal);
+    background-color: funciones.usarColor(fondoSecundario);
 }
 
-:is(h1,h2,h3,h4,p,a,legend, img){
-    color: funciones.usarColor(textoPrincipal);
+:is(h1,h2,h3,h4,p,legend, img){
     @include typo.font-tSmall;
 }
 

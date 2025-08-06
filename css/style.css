@@ -8,22 +8,21 @@
 
 /*  Correspondiente al codigo general   */
 body {
-  background-color: #0F0F0F;
+  background-color: #2A2A2A;
 }
 
-:is(h1, h2, h3, h4, p, a, legend, img) {
-  color: #F2F2F2;
+:is(h1, h2, h3, h4, p, legend, img) {
   font-family: "Inter", sans-serif;
   font-size: 1.1rem;
   font-weight: normal;
-  color: usarColor(textoPrincipal);
+  color: #F2F2F2;
 }
 
 a {
   font-family: "Inter", sans-serif;
   font-size: 1.35rem;
   font-weight: normal;
-  color: usarColor(textoPrincipal);
+  color: #F2F2F2;
   color: #4DD0E1;
 }
 
@@ -35,9 +34,9 @@ header {
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: 1fr 1fr;
   height: 13vh;
-  width: 100vw;
-  background-color: #2A2A2A;
-  box-shadow: 0 4px 6px #B2EBF2;
+  width: 100%;
+  background-color: #0F0F0F;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.365);
 }
 header img {
   grid-column: 1;
@@ -112,13 +111,66 @@ main {
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  margin-top: 2rem;
 }
 main p {
   text-align: center;
   align-self: center;
 }
-main button {
+
+/*  Correspondiente al codigo general   */
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  background-color: #0F0F0F;
+  padding: 1rem 0;
+}
+footer section:nth-child(1) {
+  grid-column: 1;
+  justify-items: center;
+  width: 100%;
+}
+footer section:nth-child(1) h3 {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+footer section:nth-child(1) div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+footer section:nth-child(1) div img {
+  width: 3.5rem;
+}
+footer section:nth-child(1) div img:hover {
+  scale: 1.15;
+  transition: 1s;
+}
+footer section:nth-child(2) {
+  align-self: center;
+  grid-column: 2;
+  height: max-content;
+}
+footer section:nth-child(2) h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  text-decoration: none;
+}
+footer section:nth-child(3) {
+  grid-column: 3;
+}
+
+/* Layout de Views */
+/* Importamos componentes con Logica*/
+/*  Correspondiente al codigo general   */
+button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,21 +181,306 @@ main button {
   font-family: "Inter", sans-serif;
   font-size: 1.35rem;
   font-weight: normal;
-  color: usarColor(textoPrincipal);
+  color: #F2F2F2;
   border-radius: 0.625rem;
   border-color: #FF6F00;
-  margin: 1rem;
 }
-main button:hover {
-  background-color: #FF6F00;
+button:hover {
+  background-color: #F4511E;
 }
-main button:active {
-  color: #330B2C;
+button:active {
+  background-color: #D84315;
+  scale: 0.98;
+}
+
+.reactivo50 {
+  background-color: rgba(241, 107, 67, 0.9058823529);
+}
+
+.links {
+  background-color: #4DD0E1;
+  color: #2A2A2A;
+  text-decoration: underline;
+  border-color: transparent;
+  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+.links:hover {
+  background-color: #B2EBF2;
 }
 
 /*  Correspondiente al codigo general   */
-/* Layout de Views */
-/* Importamos componentes */
+.remarkable-products {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.remarkable-products .card-container-title {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.remarkable-products .card-container-title h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+}
+.remarkable-products .card-container-title img {
+  width: 3.5rem;
+}
+.remarkable-products .card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.remarkable-products .card-container .arrow {
+  width: 3rem;
+  background-color: none;
+  border: none;
+}
+.remarkable-products .card-container .arrow img {
+  width: 10rem;
+}
+.remarkable-products .links {
+  align-self: center;
+}
+
+/* Importamos componentes Estaticos*/
+/*  Correspondiente al codigo general   */
+.presentation {
+  margin-bottom: 5rem;
+}
+.presentation .principal-img {
+  width: 100%;
+}
+.presentation h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 3rem;
+  font-style: italic;
+  text-align: center;
+  color: #F2F2F2;
+  margin-bottom: 5rem;
+}
+.presentation .presentation-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.presentation .presentation-text div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+}
+.presentation .presentation-text div div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.presentation .presentation-text div div .icon {
+  width: 3.5rem;
+}
+.presentation .presentation-text div div h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+}
+.presentation .presentation-text div p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  text-align: center;
+}
+.presentation .presentation-text .impresora-presentation {
+  border-radius: 50%;
+  width: 25rem;
+  height: 25rem;
+}
+
+/*  Correspondiente al codigo general   */
+.card-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0F0F0F;
+  box-shadow: 1px 1px 2px rgba(85, 85, 85, 0.55);
+  border-radius: 4.25rem;
+  width: 20.0625rem;
+  height: 31.5rem;
+  padding: 1.5rem;
+}
+.card-product img {
+  border-radius: 2.1875rem;
+  width: 16.4375rem;
+  height: 15.625rem;
+  object-fit: cover;
+}
+.card-product p:nth-child(2) {
+  font-family: "Inter", sans-serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  color: #F2F2F2;
+  align-self: start;
+  padding: 0.5rem;
+}
+.card-product p:nth-child(3) {
+  font-family: "Inter", sans-serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  color: #FF6F00;
+  align-self: start;
+  padding: 0.5rem;
+}
+.card-product a {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  padding: 0.5rem;
+  text-decoration: underline;
+  color: #4DD0E1;
+}
+.card-product a:hover {
+  scale: 1.05;
+}
+.card-product a:active {
+  color: #B2EBF2;
+}
+.card-product button {
+  width: 14.3125rem;
+  height: 2.0625rem;
+  margin: 0.45rem 0;
+}
+
+.ingresa-izquierda {
+  animation-name: ingresaIzquierda;
+  animation-iteration-count: infinite;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+}
+
+.desaparece-izquierda {
+  animation-name: desapareceIzquierda;
+  animation-iteration-count: infinite;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+}
+
+.move-left {
+  animation-name: moveLeft;
+  animation-iteration-count: infinite;
+  animation-duration: 0.75s;
+  animation-timing-function: linear;
+}
+
+.move-right {
+  animation-name: moveRight;
+  animation-iteration-count: infinite;
+  animation-duration: 0.75s;
+  animation-timing-function: linear;
+}
+
+.ingresa-derecha {
+  animation-name: ingresaDerecha;
+  animation-iteration-count: infinite;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+}
+
+.desaparece-derecha {
+  animation-name: desapareceDerecha;
+  animation-iteration-count: infinite;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes ingresaIzquierda {
+  0% {
+    transform: translate(0px, -200px);
+    scale: 0.2;
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-225px, 0px);
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes desapareceIzquierda {
+  0% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    transform: translate(-225px, -200px);
+    opacity: 0;
+    scale: 0.2;
+  }
+}
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-275px);
+  }
+}
+@keyframes moveRight {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(275px);
+  }
+}
+@keyframes ingresaDerecha {
+  0% {
+    transform: translate(0px, -200px);
+    scale: 0.2;
+    opacity: 0;
+  }
+  100% {
+    transform: translate(225px, 0px);
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes desapareceDerecha {
+  0% {
+    transform: translate(0px, 0px);
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    transform: translate(225px, -200px);
+    opacity: 0;
+    scale: 0.2;
+  }
+}
 /*  Correspondiente a las mediaQ  */
 
 /*# sourceMappingURL=style.css.map */

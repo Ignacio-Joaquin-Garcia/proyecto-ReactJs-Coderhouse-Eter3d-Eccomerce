@@ -1,0 +1,154 @@
+@use "../../utilities/variables";
+@use "../../utilities/mixins";
+@use "../../utilities/funciones";
+@use "../../base/typo";
+
+.card-product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: funciones.usarColor(fondoPrincipal);
+    box-shadow: 1px 1px 2px rgba(85, 85, 85, 0.55);
+    border-radius: 4.25rem;
+    width: 20.0625rem;
+    height: 31.5rem;
+    padding: 1.5rem;
+    img{
+        border-radius: 2.1875rem;
+        width: 16.4375rem;
+        height: 15.625rem;
+        object-fit: cover;
+    }
+    p:nth-child(2){
+        @include typo.font-tRegular;
+        color: funciones.usarColor(textoPrincipal);
+        align-self: start;
+        padding: 0.5rem;
+    }
+    p:nth-child(3){
+        @include typo.font-tRegular;
+        color: funciones.usarColor(elementosReactivos2);
+        align-self: start;
+        padding: 0.5rem;
+    }
+    a{
+        @include typo.font-tSmall;
+        padding: 0.5rem;
+        text-decoration: underline;
+        color: funciones.usarColor(iconosELinks);
+        &:hover{
+            scale: 1.05;
+        }
+        &:active{
+            color: funciones.usarColor(alternativa2);
+        }
+    }
+    button{
+        width: 14.3125rem;
+        height: 2.0625rem;
+        margin: 0.45rem 0
+    }
+}
+.ingresa-izquierda{
+    animation-name: ingresaIzquierda;
+    animation-iteration-count: infinite;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+}
+.desaparece-izquierda{
+    animation-name: desapareceIzquierda;
+    animation-iteration-count: infinite;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+}
+.move-left{
+    animation-name: moveLeft;
+    animation-iteration-count: infinite;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+}
+.move-right{
+    animation-name: moveRight;
+    animation-iteration-count: infinite;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+}
+.ingresa-derecha{
+    animation-name: ingresaDerecha;
+    animation-iteration-count: infinite;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+}
+.desaparece-derecha{
+    animation-name: desapareceDerecha;
+    animation-iteration-count: infinite;
+    animation-duration: 0.75s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes ingresaIzquierda {
+    0%{
+        transform: translate(0px,-200px);
+        scale: 0.2;
+        opacity: 0;
+    }
+    100%{
+        transform: translate(-225px,0px);
+        opacity: 1;
+        scale: 1;
+    }
+}
+@keyframes desapareceIzquierda {
+    0%{
+        transform: translate(0px, 0px);
+        opacity: 1;
+        scale: 1;
+    }
+    100%{
+        transform: translate(-225px, -200px);
+        opacity: 0;
+        scale: 0.2;
+    }
+}
+@keyframes moveLeft {
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(-275px);
+    }
+}
+
+@keyframes moveRight {
+    0%{
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(275px);
+    }
+}
+@keyframes ingresaDerecha{
+    0%{
+        transform: translate(0px,-200px);
+        scale: 0.2;
+        opacity: 0;
+    }
+    100%{
+        transform: translate(225px,0px);
+        opacity: 1;
+        scale: 1;
+    }
+}
+@keyframes desapareceDerecha {
+    0%{
+        transform: translate(0px, 0px);
+        opacity: 1;
+        scale: 1;
+    }
+    100%{
+        transform: translate(225px, -200px);
+        opacity: 0;
+        scale: 0.2;
+    }
+}

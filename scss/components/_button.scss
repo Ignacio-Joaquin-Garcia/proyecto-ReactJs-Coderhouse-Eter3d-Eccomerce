@@ -1,0 +1,39 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/funciones";
+@use "../base/typo";
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 21.25rem;
+    height: 2.1875rem;
+    background-color: funciones.usarColor(elementosReactivos1);
+    color: funciones.usarColor(textoPrincipal);
+    @include typo.font-tRegular;
+    border-radius: .625rem;
+    border-color: funciones.usarColor(elementosReactivos2);
+    
+    &:hover{
+        background-color: funciones.usarColor(hover);
+    }
+    &:active{
+        background-color: funciones.usarColor(active);
+        scale: 0.98;
+        
+    }
+}
+.reactivo50{
+    background-color: funciones.usarColor(elementosReactivos1-50);
+}
+.links{
+    background-color: funciones.usarColor(iconosELinks);
+    color: funciones.usarColor(fondoSecundario);
+    text-decoration: underline;
+    border-color: transparent;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    &:hover{
+        background-color: funciones.usarColor(alternativa2);
+    }
+}

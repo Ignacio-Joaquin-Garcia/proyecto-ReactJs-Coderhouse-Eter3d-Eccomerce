@@ -7,29 +7,8 @@ main{
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    margin-top: 2rem;
     p{
         text-align: center;
         align-self: center;
     }
-    button{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 21.25rem;
-        height: 2.1875rem;
-        background-color: funciones.usarColor(elementosReactivos1);
-        color: funciones.usarColor(textoPrincipal);
-        @include typo.font-tRegular;
-        border-radius: .625rem;
-        border-color: funciones.usarColor(elementosReactivos2);
-        margin: 1rem;
-        &:hover{
-            background-color: funciones.usarColor(elementosReactivos2);
-        }
-        &:active{
-            color: funciones.usarColor(alternativa1);
-        }
-    }
-    
 }

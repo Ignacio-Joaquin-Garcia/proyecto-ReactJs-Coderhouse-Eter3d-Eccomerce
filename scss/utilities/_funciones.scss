@@ -1,14 +1,19 @@
+@use "sass:map";
+
 $colores: (
     fondoPrincipal: #0F0F0F,
     fondoSecundario: #2A2A2A,
     iconosELinks: #4DD0E1,
     textoPrincipal: #F2F2F2,
     elementosReactivos1: #FF5722,
+    elementosReactivos1-50: #f16b43e7,
     elementosReactivos2: #FF6F00,
     alternativa1: #330B2C,
-    alternativa2: #B2EBF2
+    alternativa2: #B2EBF2,
+    hover: #F4511E,
+    active: #D84315
 );
 
 @function usarColor($color){
-    @return map-get($colores, $color)
+    @return map.get($colores, $color)
 }

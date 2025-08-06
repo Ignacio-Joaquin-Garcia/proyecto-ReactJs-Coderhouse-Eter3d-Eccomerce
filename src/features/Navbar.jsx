@@ -1,12 +1,14 @@
-import { CartWidget } from './CartWidget';
+import { CartWidget } from '../components/CartWidget';
 
 
 export function Navbar() {
     
     return (
         <header>
-            <img src="../assets/img/logo.png" alt="Logo" />
-            <div class="search"></div>
+            <img src="assets/img/logo.png" alt="Logo" />
+            <div className="search">
+                <input type="text" />
+            </div>
             <nav>
                 <ul>
                     <li><a href="#">Inicio</a></li>
