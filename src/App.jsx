@@ -8,6 +8,7 @@ import { Button } from './features/Button';
 import { CardContainer } from './features/CardContainer';
 
 import { Presentation } from './static/Presentation';
+import { Deliveries } from './static/Deliveries';
 
 function App() {
   const [default1, set] = useState(`Ignacio`) 
@@ -23,8 +24,11 @@ function App() {
 
         <CardContainer/>
 
-        <ItemListContainer nombre={default1}/> 
+
+        <Deliveries/>
+
         <Button onClick={cambiar} text={"Clickeame"}/>
+        <ItemListContainer nombre={default1}/> 
       </main>
       <Footer/>
     </>

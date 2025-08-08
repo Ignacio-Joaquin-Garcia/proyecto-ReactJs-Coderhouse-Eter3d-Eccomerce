@@ -29,6 +29,8 @@ a {
 /*  Importamos el Layout  */
 /*  Correspondiente al codigo general   */
 header {
+  position: sticky;
+  top: 0;
   display: grid;
   align-items: center;
   grid-template-columns: repeat(9, 1fr);
@@ -105,6 +107,49 @@ header .search {
   justify-self: center;
 }
 
+.scroll-down {
+  display: none;
+}
+
+.scroll-up {
+  display: grid;
+}
+
+.scroll-down-animation {
+  animation-name: scrollDown;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.scroll-up-animation {
+  display: grid;
+  animation-name: scrollUp;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes scrollDown {
+  from {
+    width: 100%;
+    opacity: 100%;
+  }
+  to {
+    width: 0%;
+    opacity: 0%;
+  }
+}
+@keyframes scrollUp {
+  from {
+    width: 0%;
+    opacity: 0%;
+  }
+  to {
+    width: 100%;
+    opacity: 100%;
+  }
+}
 /*  Correspondiente al codigo general   */
 main {
   display: flex;
@@ -213,6 +258,7 @@ button:active {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-bottom: 5rem;
 }
 .remarkable-products .card-container-title {
   display: flex;
@@ -266,14 +312,23 @@ button:active {
   width: 100%;
 }
 .presentation h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 12rem;
   font-family: "Inter", sans-serif;
   font-size: 3rem;
   font-style: italic;
   text-align: center;
   color: #F2F2F2;
-  margin-bottom: 5rem;
+  animation-name: moveText;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
 .presentation .presentation-text {
+  background-color: #0F0F0F;
+  padding: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -318,6 +373,34 @@ button:active {
   height: 25rem;
 }
 
+@keyframes moveText {
+  0% {
+    width: 100%;
+    scale: 0;
+    opacity: 0;
+    transform: rotate(0deg);
+    letter-spacing: 180px;
+    color: #4DD0E1;
+  }
+  25% {
+    width: 100%;
+    scale: 0.5;
+    opacity: 0.5;
+    transform: rotate(5deg);
+  }
+  75% {
+    width: 100%;
+    scale: 0.5;
+    opacity: 0.5;
+    transform: rotate(-5deg);
+  }
+  100% {
+    scale: 1;
+    opacity: 1;
+    transform: rotate(0deg);
+    letter-spacing: 0px;
+  }
+}
 /*  Correspondiente al codigo general   */
 .card-product {
   display: flex;
@@ -481,6 +564,59 @@ button:active {
     scale: 0.2;
   }
 }
-/*  Correspondiente a las mediaQ  */
+/*  Correspondiente al codigo general   */
+.deliveries {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: #0F0F0F;
+  margin-bottom: 5rem;
+}
+.deliveries div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+.deliveries figure {
+  width: 100%;
+}
+.deliveries figure iframe {
+  border: none;
+  border-radius: 15px;
+  width: 333px;
+  height: 333px;
+  margin: 1rem;
+}
+.deliveries h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+}
+.deliveries img {
+  width: 3.5rem;
+}
+.deliveries p {
+  width: 70%;
+}
+.deliveries figcaption {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  text-align: center;
+  color: #4DD0E1;
+  padding: 1rem;
+}
 
 /*# sourceMappingURL=style.css.map */

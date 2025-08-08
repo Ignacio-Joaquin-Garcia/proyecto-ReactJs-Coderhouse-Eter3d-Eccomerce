@@ -4,14 +4,24 @@
 @use "../../base/typo";
 
 .presentation{
+    
     .principal-img{
         width: 100%;
     }
     h1{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 12rem;
         @include typo.font-tPrimarios;
-        margin-bottom: 5rem;
+        animation-name: moveText;
+        animation-iteration-count: 1;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
     }
     .presentation-text{
+        background-color: funciones.usarColor(fondoPrincipal);
+        padding: 2rem;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -49,4 +59,35 @@
         }
     }
     margin-bottom: 5rem;
+}
+
+@keyframes moveText {
+    0%{
+        width: 100%;
+        scale: 0;
+        opacity: 0;
+        transform: rotate(0deg);
+        letter-spacing: 180px;
+        color: funciones.usarColor(iconosELinks);
+        
+    }   
+    25%{
+        width: 100%;
+        scale: 0.5;
+        opacity: 0.5;
+        transform: rotate(5deg)
+        
+    }
+    75%{
+        width: 100%;
+        scale: 0.5;
+        opacity: 0.5;
+        transform: rotate(-5deg);
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+        transform: rotate(0deg);
+        letter-spacing: 0px;
+    }
 }

@@ -1,0 +1,50 @@
+@use "../../utilities/variables";
+@use "../../utilities/mixins";
+@use "../../utilities/funciones";
+@use "../../base/typo";
+
+.deliveries{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: funciones.usarColor(fondoPrincipal);
+    div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        padding: 1rem;
+    }
+    figure{
+        width: 100%;
+        iframe{
+            border: none;
+            border-radius: 15px;
+            width: 333px;
+            height: 333px;
+            margin: 1rem;
+        }
+        
+    }
+    h2{
+        @include typo.font-tSecundario
+        
+    }
+    img{
+        width: 3.5rem;
+    }
+    p{
+        width: 70%;
+    }
+    figcaption{
+        @include typo.font-tSmall;
+        text-align:center;
+        color: funciones.usarColor(iconosELinks);
+        padding: 1rem;
+    }
+    margin-bottom: 5rem;
+}

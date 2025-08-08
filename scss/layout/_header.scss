@@ -3,7 +3,11 @@
 @use "../utilities/funciones";
 @use "../base/typo";
 
+
+
 header{
+    position: sticky;
+    top: 0;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(9, 1fr);
@@ -73,5 +77,46 @@ header{
         height: 1.85rem;
         align-self: center;
         justify-self: center;
+    }
+}
+
+.scroll-down{
+    display: none;
+}
+.scroll-up{
+    display: grid;
+}
+.scroll-down-animation{
+    animation-name: scrollDown;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+.scroll-up-animation{
+    display: grid;
+    animation-name: scrollUp;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes scrollDown{
+    from{
+        width: 100%;
+        opacity: 100%;
+    }
+    to{
+        width: 0%;
+        opacity: 0%;
+    }
+}
+@keyframes scrollUp{
+    from{
+        width: 0%;
+        opacity: 0%;
+    }
+    to{
+        width: 100%;
+        opacity: 100%;
     }
 }
