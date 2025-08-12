@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { CardProduct } from "../components/CardProduct"
-import { Button } from "./Button"
+import { Button } from "../components/Button"
 
 let i = 0;
 export function CardContainer(){

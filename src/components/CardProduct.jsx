@@ -1,4 +1,4 @@
-import { Button } from "../features/Button"
+import { Button } from "./Button"
 
 export function CardProduct(props){
 

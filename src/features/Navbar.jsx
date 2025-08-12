@@ -13,7 +13,6 @@ export function Navbar() {
         let i = 0
         let isScrollingDown = false
         function scrollHeader(){
-            console.log(i)
             const currentScroll = window.scrollY;
             if(currentScroll < lastScroll){
                 i--
@@ -21,7 +20,7 @@ export function Navbar() {
                 i++
             }
             lastScroll = currentScroll
-            if ((i<=0) && (isScrollingDown === true)){
+            if (((i<=0) && (isScrollingDown === true) || ((window.scrollY === 0) && (isScrollingDown === true)))){
                 setScrollBar("scroll-up-animation")
                 setTimeout(()=>{setScrollBar("scroll-up")},850)
                 i=0

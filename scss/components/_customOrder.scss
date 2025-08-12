@@ -1,0 +1,33 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/funciones";
+@use "../base/typo";
+
+.customOrder{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 1.25rem;
+    border-radius: 50px;
+    background-color: funciones.usarColor(fondoPrincipal);
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+    h2{
+        @include typo.font-tSecundario;
+        padding: 2rem;
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        input, textarea{
+            color: funciones.usarColor(textoPrincipal);
+            padding: 1rem;
+        }
+    }
+    p{
+        padding: 1.5rem;
+    }
+    margin-bottom: 5rem;
+}

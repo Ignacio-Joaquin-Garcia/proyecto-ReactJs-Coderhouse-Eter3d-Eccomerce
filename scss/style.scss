@@ -14,7 +14,9 @@
 
 /* Importamos componentes con Logica*/
 @use "components/button";
+@use "components/input";
 @use "components/cardContainer";
+@use "components/customOrder";
 /* Importamos componentes Estaticos*/
 @use "components/static/presentation";
 @use "components/static/cardProduct";
