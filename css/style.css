@@ -339,6 +339,16 @@ textarea:focus {
   align-self: center;
 }
 
+.none {
+  display: none;
+}
+
+.seccion {
+  text-align: start;
+  text-decoration-style: underline;
+  width: 100%;
+}
+
 /*  Correspondiente al codigo general   */
 .customOrder {
   display: flex;
@@ -490,7 +500,7 @@ textarea:focus {
   border-radius: 2.1875rem;
   width: 16.4375rem;
   height: 15.625rem;
-  object-fit: cover;
+  object-fit: contain;
 }
 .card-product p:nth-child(2) {
   font-family: "Inter", sans-serif;
@@ -500,6 +510,8 @@ textarea:focus {
   color: #F2F2F2;
   align-self: start;
   padding: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card-product p:nth-child(3) {
   font-family: "Inter", sans-serif;

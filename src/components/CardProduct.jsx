@@ -1,4 +1,5 @@
 import { Button } from "./Button"
+import { Link } from "react-router-dom"
 
 export function CardProduct(props){
 
@@ -8,7 +9,7 @@ export function CardProduct(props){
                 <img src={props.img} alt="" />
                 <p>{props.productName}</p>
                 <p>{"$"+props.price}</p>
-                <a href="#">Ver más</a>
+                <Link to={`/products/detail/${props.id}`}>Ver más</Link>
                 <Button text="Encargar Ahora"/>
                 <Button className="reactivo50" text="Agregar al Carrito"/>
             </div>

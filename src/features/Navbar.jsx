@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+
 import { CartWidget } from '../components/CartWidget';
 
 
@@ -49,11 +51,11 @@ export function Navbar() {
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Contacto</a></li>
-                    <li><a href="#">Ingresá</a></li>
-                    <li><a href="#">Creá tu Cuenta</a></li>
+                    <li><Link to="/">Inicio</Link></li>
+                    <li><Link to="/products">Productos</Link></li>
+                    <li><Link to="/">Contacto</Link></li>
+                    <li><Link to="/">Ingresá</Link></li>
+                    <li><Link to="/">Creá tu Cuenta</Link></li>
                 </ul>
             </nav>
             <CartWidget/>

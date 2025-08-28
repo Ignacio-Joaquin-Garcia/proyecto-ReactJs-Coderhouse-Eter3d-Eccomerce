@@ -18,13 +18,15 @@
         border-radius: 2.1875rem;
         width: 16.4375rem;
         height: 15.625rem;
-        object-fit: cover;
+        object-fit:contain;
     }
     p:nth-child(2){
         @include typo.font-tRegular;
         color: funciones.usarColor(textoPrincipal);
         align-self: start;
         padding: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     p:nth-child(3){
         @include typo.font-tRegular;
