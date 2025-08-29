@@ -5,14 +5,14 @@ $font-family: "Inter", sans-serif;
 
 @mixin font-tPrimarios{
     font-family: $font-family;
-    font-size: 3rem;
+    font-size: clamp(1rem, 0.7391rem + 1.3913vw, 3rem);
     font-style: italic;
     text-align: center;
     color: funciones.usarColor(textoPrincipal);
 }
 @mixin font-tSecundario{  
     font-family: $font-family;
-    font-size: 2rem;
+    font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
     font-weight: 750;
     color: funciones.usarColor(textoPrincipal);
     text-decoration-line: underline;
@@ -22,13 +22,13 @@ $font-family: "Inter", sans-serif;
 }
 @mixin font-tRegular{
     font-family: $font-family;
-    font-size: 1.35rem;
+    font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
     font-weight: normal;
     color: funciones.usarColor(textoPrincipal);
 }
 @mixin font-tSmall{
     font-family: $font-family;
-    font-size: 1.1rem;
+    font-size: clamp(0.6875rem, 0.6337rem + 0.287vw, 1.1rem);
     font-weight: normal;
     color: funciones.usarColor(textoPrincipal);
 }

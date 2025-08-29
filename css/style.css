@@ -13,14 +13,14 @@ body {
 
 :is(h1, h2, h3, h4, p, legend, img) {
   font-family: "Inter", sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.6875rem, 0.6337rem + 0.287vw, 1.1rem);
   font-weight: normal;
   color: #F2F2F2;
 }
 
 a {
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
   color: #4DD0E1;
@@ -98,7 +98,7 @@ header nav .productos .sublista-categoria li {
 }
 header nav .productos .sublista-categoria li a {
   font-family: "Inter", sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.6875rem, 0.6337rem + 0.287vw, 1.1rem);
   font-weight: normal;
   color: #F2F2F2;
   color: #B2EBF2;
@@ -117,7 +117,6 @@ header a {
 }
 header a:hover {
   color: #FF5722;
-  scale: 1.52;
 }
 header a:active {
   color: #FF6F00;
@@ -231,7 +230,7 @@ footer section:nth-child(2) {
 }
 footer section:nth-child(2) h2 {
   font-family: "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
   color: #F2F2F2;
   text-decoration-line: underline;
@@ -267,7 +266,7 @@ footer section:nth-child(3) {
 }
 .category-products h2 {
   font-family: "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
   color: #F2F2F2;
   text-decoration-line: underline;
@@ -315,7 +314,7 @@ footer section:nth-child(3) {
 }
 .individual-product .product-selection div form h2 {
   font-family: "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
   color: #F2F2F2;
   text-decoration-line: underline;
@@ -324,22 +323,22 @@ footer section:nth-child(3) {
   text-decoration-thickness: 2px;
   text-decoration: none;
   width: 50dvw;
-  font-size: 1.8rem;
+  font-size: clamp(0.875rem, 0.7543rem + 0.6435vw, 1.8rem);
   text-align: start;
 }
 .individual-product .product-selection div form p {
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
   color: #FF6F00;
   text-align: start;
-  font-size: 1.6rem;
+  font-size: clamp(0.8125rem, 0.7098rem + 0.5478vw, 1.6rem);
   margin-top: 1rem;
 }
 .individual-product .product-selection div form h3 {
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
   text-decoration: underline;
@@ -354,7 +353,7 @@ footer section:nth-child(3) {
 }
 .individual-product .product-selection div form div label {
   font-family: "Inter", sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.6875rem, 0.6337rem + 0.287vw, 1.1rem);
   font-weight: normal;
   color: #F2F2F2;
   width: 100%;
@@ -377,7 +376,7 @@ footer section:nth-child(3) {
 }
 .individual-product .product-description h2 {
   font-family: "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
   color: #F2F2F2;
   text-decoration-line: underline;
@@ -386,7 +385,7 @@ footer section:nth-child(3) {
   text-decoration-thickness: 2px;
   text-decoration: none;
   width: 50dvw;
-  font-size: 1.8rem;
+  font-size: clamp(0.875rem, 0.7543rem + 0.6435vw, 1.8rem);
   text-align: start;
   margin-bottom: 1.5rem;
 }
@@ -419,7 +418,7 @@ button {
   background-color: #FF5722;
   color: #F2F2F2;
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
   border-radius: 0.625rem;
@@ -467,7 +466,7 @@ input:focus {
   outline-color: #FF5722;
   scale: 1;
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
 }
@@ -485,7 +484,7 @@ textarea:focus {
   outline-color: #FF5722;
   scale: 1;
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
 }
@@ -508,7 +507,7 @@ textarea:focus {
 }
 .remarkable-products .card-container-title h2 {
   font-family: "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
   color: #F2F2F2;
   text-decoration-line: underline;
@@ -564,7 +563,7 @@ textarea:focus {
 }
 .customOrder h2 {
   font-family: "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
   color: #F2F2F2;
   text-decoration-line: underline;
@@ -602,7 +601,7 @@ textarea:focus {
   justify-content: center;
   height: 12rem;
   font-family: "Inter", sans-serif;
-  font-size: 3rem;
+  font-size: clamp(1rem, 0.7391rem + 1.3913vw, 3rem);
   font-style: italic;
   text-align: center;
   color: #F2F2F2;
@@ -637,7 +636,7 @@ textarea:focus {
 }
 .presentation .presentation-text div div h2 {
   font-family: "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
   color: #F2F2F2;
   text-decoration-line: underline;
@@ -647,7 +646,7 @@ textarea:focus {
 }
 .presentation .presentation-text div p {
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
   text-align: center;
@@ -706,7 +705,7 @@ textarea:focus {
 }
 .card-product p:nth-child(2) {
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
   color: #F2F2F2;
@@ -717,7 +716,7 @@ textarea:focus {
 }
 .card-product p:nth-child(3) {
   font-family: "Inter", sans-serif;
-  font-size: 1.35rem;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
   color: #FF6F00;
@@ -726,7 +725,7 @@ textarea:focus {
 }
 .card-product a {
   font-family: "Inter", sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.6875rem, 0.6337rem + 0.287vw, 1.1rem);
   font-weight: normal;
   color: #F2F2F2;
   padding: 0.5rem;
@@ -882,7 +881,7 @@ textarea:focus {
 }
 .deliveries h2 {
   font-family: "Inter", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
   color: #F2F2F2;
   text-decoration-line: underline;
@@ -898,7 +897,7 @@ textarea:focus {
 }
 .deliveries figcaption {
   font-family: "Inter", sans-serif;
-  font-size: 1.1rem;
+  font-size: clamp(0.6875rem, 0.6337rem + 0.287vw, 1.1rem);
   font-weight: normal;
   color: #F2F2F2;
   text-align: center;

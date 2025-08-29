@@ -36,7 +36,7 @@
                     @include typo.font-tSecundario;
                     text-decoration: none;
                     width: 50dvw;
-                    font-size: 1.8rem;
+                    font-size: clamp(0.875rem, 0.7543rem + 0.6435vw, 1.8rem);
                     text-align: start;
                     
                 }
@@ -44,7 +44,7 @@
                     @include typo.font-tRegular;
                     color: funciones.usarColor(elementosReactivos2);
                     text-align: start;
-                    font-size: 1.6rem;
+                    font-size: clamp(0.8125rem, 0.7098rem + 0.5478vw, 1.6rem);
                     margin-top: 1rem
                 }
                 h3{
@@ -86,7 +86,7 @@
             @include typo.font-tSecundario;
             text-decoration: none;
             width: 50dvw;
-            font-size: 1.8rem;
+            font-size: clamp(0.875rem, 0.7543rem + 0.6435vw, 1.8rem);
             text-align: start;
             margin-bottom: 1.5rem;
         }
