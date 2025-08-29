@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { CardProduct } from "../components/CardProduct";
 import { Button } from "../components/Button";
@@ -43,27 +44,43 @@ export function CardContainer(props){
         })
     }
 */
+
     useEffect(()=>{
         //loadBack()
 
         getData()
         .then((response) => response.json())
-        .then((data)=>{
+        .then((info)=>{
+            console.log(props.category)
+            const auxArray = [];
+            let auxInfo;
+            if(props.category !== undefined){
+                
+                info.forEach(element => {
+                    if(element.category === props.category){
+                        auxArray.push(element);
+                    }
+                    auxInfo = auxArray;
+                });
+            } else{
+                console.log("Entrooooo")
+                auxInfo = info;
+            }
+            
             let arrayToShow = [];
-            console.log(data)
-            data.forEach(element => {
+            console.log(auxInfo)
+            auxInfo.forEach(element => {
                 
                 arrayToShow.push(element)
                 
             });
             setProductData(arrayToShow);
-            
             setProductShow(arrayToShow.slice(0,3))
-        })
+            })
         .catch((error)=>{
             alert(error)
         });
-    },[])
+    },[props.category])
 
     const handleShowProductM = ()=>{
         setI(i-1);
@@ -155,7 +172,7 @@ export function CardContainer(props){
                 ))}
                 <button className="arrow" onClick={handleShowProductP}><img src="assets/img/icons/arrow_right.svg" alt="derecha" /></button>
             </div>
-            <Button className={props.classButton} onClick={()=>{window.location.href = "#"}} text="Ver todo el catalogo"/>
+            <Button className={props.classButton} text=""><Link to={"/products"}>Ver todo el catalogo</Link></Button>
 
         </section>
     )

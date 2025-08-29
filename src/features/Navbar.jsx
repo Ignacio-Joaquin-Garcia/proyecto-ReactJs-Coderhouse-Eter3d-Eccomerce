@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-import { CartWidget } from '../components/CartWidget';
 
+import { CartWidget } from '../components/CartWidget';
+import { getData } from '../async';
 
 export function Navbar() {
     const [scrollBar, setScrollBar] = useState("");
-    
-    
+    const [arrayCategory, setArrayCategory] = useState([]);
 
 
     useEffect(()=>{
@@ -40,8 +40,33 @@ export function Navbar() {
         }
         window.addEventListener("scroll",scrollHeader)
         return () => {window.removeEventListener("scroll",scrollHeader)};
-    },[])
+    },[]);
+    useEffect(()=>{
+        getData()
+        .then((response) => response.json())
+        .then((apiData) => {
+            let i = 0;
+            let id = 1;
+            let lastInfo;
+            let arrayCategoriasProgreso = [];
+            apiData.forEach((info) =>{
+                if(i === 0){
+                    arrayCategoriasProgreso.push({id:id, category:info.category})
+                    lastInfo = info.category;
+                }
+                if(info.category !== lastInfo){
+                    id++;
+                    arrayCategoriasProgreso.push({id:id, category:info.category})
+                    lastInfo = info.category;
+                }
+                i++;
+            });
+            setArrayCategory(arrayCategoriasProgreso)
+        })
+        .catch((error)=>{alert("Error en la carga de la API, Error: ", error)});
+    },[]);
 
+    
 
     return (
         <header className={scrollBar}>
@@ -50,9 +75,16 @@ export function Navbar() {
                 <input type="text" />
             </div>
             <nav>
-                <ul>
+                <ul className='lista-principal'>
                     <li><Link to="/">Inicio</Link></li>
-                    <li><Link to="/products">Productos</Link></li>
+                    <li className='productos'>
+                        <Link to="/products">Productos</Link>
+                        <ul className='sublista-categoria'>
+                            {arrayCategory.map((category) =>{
+                                return <li key={category.id}><Link to={`/products/category/${category.category}`}>{category.category}</Link></li>
+                            })}
+                        </ul>
+                    </li>
                     <li><Link to="/">Contacto</Link></li>
                     <li><Link to="/">Ingresá</Link></li>
                     <li><Link to="/">Creá tu Cuenta</Link></li>

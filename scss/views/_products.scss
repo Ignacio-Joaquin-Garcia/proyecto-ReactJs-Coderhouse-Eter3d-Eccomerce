@@ -1,0 +1,33 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/funciones";
+@use "../base/typo";
+
+
+.container-all-products{
+    width: 100%;
+    h2{
+        text-align: center;
+    }
+}
+
+.category-products{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 750px;
+    div{
+        margin: 0.5rem;
+    }
+    h2{
+        @include typo.font-tSecundario;
+        text-align: center;
+        align-content: center;
+        margin: 2rem;
+    }
+    margin-bottom: 3rem;
+
+}
+

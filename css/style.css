@@ -57,32 +57,57 @@ header nav {
   grid-column-end: 10;
   grid-row: 2;
 }
-header nav ul {
+header nav .lista-principal {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: 1fr;
   list-style: none;
 }
-header nav ul li:nth-child(1) {
+header nav .lista-principal li:nth-child(1) {
   grid-column: 1;
   text-align: center;
 }
-header nav ul li:nth-child(2) {
+header nav .lista-principal li:nth-child(2) {
   grid-column: 2;
   text-align: center;
 }
-header nav ul li:nth-child(3) {
+header nav .lista-principal li:nth-child(3) {
   grid-column: 3;
   text-align: center;
 }
-header nav ul li:nth-child(4) {
+header nav .lista-principal li:nth-child(4) {
   grid-column: 6;
   text-align: center;
 }
-header nav ul li:nth-child(5) {
+header nav .lista-principal li:nth-child(5) {
   grid-column-start: 7;
   grid-column-end: 9;
   text-align: center;
+}
+header nav .productos .sublista-categoria {
+  display: none;
+  position: absolute;
+  background-color: #2A2A2A;
+  padding: 0.75rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+header nav .productos .sublista-categoria li {
+  margin: 1rem;
+  list-style: none;
+}
+header nav .productos .sublista-categoria li a {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  color: #B2EBF2;
+}
+header nav .productos .sublista-categoria li a:hover {
+  color: #4DD0E1;
+}
+header nav .productos:hover .sublista-categoria {
+  display: block;
 }
 header a {
   grid-row: 1;
@@ -92,6 +117,7 @@ header a {
 }
 header a:hover {
   color: #FF5722;
+  scale: 1.52;
 }
 header a:active {
   color: #FF6F00;
@@ -105,6 +131,12 @@ header .search {
   height: 1.85rem;
   align-self: center;
   justify-self: center;
+}
+header .search input {
+  width: 50vw;
+  height: 1.85rem;
+  background-color: #F2F2F2;
+  color: #FF5722;
 }
 
 .scroll-down {
@@ -213,6 +245,169 @@ footer section:nth-child(3) {
 }
 
 /* Layout de Views */
+/*  Correspondiente al codigo general   */
+.container-all-products {
+  width: 100%;
+}
+.container-all-products h2 {
+  text-align: center;
+}
+
+.category-products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  min-height: 750px;
+  margin-bottom: 3rem;
+}
+.category-products div {
+  margin: 0.5rem;
+}
+.category-products h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  text-align: center;
+  align-content: center;
+  margin: 2rem;
+}
+
+/*  Correspondiente al codigo general   */
+.individual-product {
+  margin: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  background-color: #0F0F0F;
+}
+.individual-product .product-selection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.individual-product .product-selection img {
+  width: 350px;
+  height: 500px;
+  border-radius: 30px;
+  margin: 1rem;
+  background-color: #2A2A2A;
+}
+.individual-product .product-selection div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.individual-product .product-selection div form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.individual-product .product-selection div form h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  text-decoration: none;
+  width: 50dvw;
+  font-size: 1.8rem;
+  text-align: start;
+}
+.individual-product .product-selection div form p {
+  font-family: "Inter", sans-serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  color: #FF6F00;
+  text-align: start;
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+.individual-product .product-selection div form h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 1.35rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  text-decoration: underline;
+  text-align: center;
+}
+.individual-product .product-selection div form div {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+.individual-product .product-selection div form div label {
+  font-family: "Inter", sans-serif;
+  font-size: 1.1rem;
+  font-weight: normal;
+  color: #F2F2F2;
+  width: 100%;
+  text-align: center;
+}
+.individual-product .product-selection div form div label input {
+  margin-top: 0.5rem;
+  width: 100%;
+  border: 1px solid #FF5722;
+  border-radius: 8px;
+}
+.individual-product .product-selection div form button {
+  margin: 1rem;
+  width: 400px;
+  align-self: center;
+}
+.individual-product .product-description {
+  width: 100%;
+  padding: 3.5rem;
+}
+.individual-product .product-description h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  text-decoration: none;
+  width: 50dvw;
+  font-size: 1.8rem;
+  text-align: start;
+  margin-bottom: 1.5rem;
+}
+.individual-product .product-questions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.individual-product .product-questions img {
+  margin-bottom: 0.5rem;
+}
+.individual-product .product-questions p {
+  margin-bottom: 0.5rem;
+  color: #4DD0E1;
+}
+.individual-product .product-questions button a {
+  color: #0F0F0F;
+  text-decoration: underline;
+}
+
 /* Importamos componentes con Logica*/
 /*  Correspondiente al codigo general   */
 button {
@@ -237,6 +432,9 @@ button:active {
   background-color: #D84315;
   scale: 0.98;
 }
+button a {
+  color: #F2F2F2;
+}
 
 .reactivo50 {
   background-color: rgba(241, 107, 67, 0.9058823529);
@@ -251,6 +449,9 @@ button:active {
 }
 .links:hover {
   background-color: #B2EBF2;
+}
+.links a {
+  color: #2A2A2A;
 }
 
 /*  Correspondiente al codigo general   */
@@ -389,6 +590,7 @@ textarea:focus {
 /* Importamos componentes Estaticos*/
 /*  Correspondiente al codigo general   */
 .presentation {
+  width: 100%;
   margin-bottom: 5rem;
 }
 .presentation .principal-img {
@@ -703,5 +905,7 @@ textarea:focus {
   color: #4DD0E1;
   padding: 1rem;
 }
+
+/*  Correspondiente a las mediaQ  */
 
 /*# sourceMappingURL=style.css.map */

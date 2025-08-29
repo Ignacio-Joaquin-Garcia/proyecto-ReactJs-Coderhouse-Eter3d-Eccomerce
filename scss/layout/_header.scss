@@ -33,28 +33,54 @@ header{
         grid-column-start: 2;
         grid-column-end: 10;
         grid-row: 2;
-        ul{
+        .lista-principal{
             display: grid;
             grid-template-columns: repeat(8, 1fr);
             grid-template-rows: 1fr;
             list-style: none;
         }
         @for $i from 1 through 3{
-            ul li:nth-child(#{$i}){
+            .lista-principal li:nth-child(#{$i}){
                 grid-column: #{$i};
                 text-align: center;
             }
         }
-        ul li:nth-child(4){
+        .lista-principal li:nth-child(4){
             grid-column: 6;
             text-align: center;
         }
-        ul li:nth-child(5){
+        .lista-principal li:nth-child(5){
             grid-column-start: 7;
             grid-column-end: 9;
             text-align: center;
         }
-
+        
+        .productos{
+            .sublista-categoria{
+                display: none;
+                position: absolute;
+                background-color: funciones.usarColor(fondoSecundario);
+                padding: 0.75rem;
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                li{
+                    margin: 1rem;
+                    list-style: none;
+                    a{
+                        @include typo.font-tSmall;
+                        color: funciones.usarColor(alternativa2);
+                        &:hover{
+                            color: funciones.usarColor(iconosELinks);
+                        }
+                    }
+                }
+            }
+            &:hover{
+                .sublista-categoria{
+                    display:block;
+                }
+            }
+        }
     }
     a{
         grid-row: 1;
@@ -63,6 +89,7 @@ header{
         align-self: center;
         &:hover{
             color: funciones.usarColor(elementosReactivos1);
+            scale: 1.52;
         }
         &:active{
             color: funciones.usarColor(elementosReactivos2);
@@ -77,6 +104,12 @@ header{
         height: 1.85rem;
         align-self: center;
         justify-self: center;
+        input{
+            width: 50vw;
+            height: 1.85rem;
+            background-color: funciones.usarColor(textoPrincipal);
+            color: funciones.usarColor(elementosReactivos1);
+        }
     }
 }
 

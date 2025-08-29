@@ -1,0 +1,113 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/funciones";
+@use "../base/typo";
+
+.individual-product{
+    margin: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    background-color: funciones.usarColor(fondoPrincipal);
+    .product-selection{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+        justify-content: space-evenly;
+        width: 100%;
+        img{
+            width: 350px;
+            height: 500px;
+            border-radius: 30px;
+            margin: 1rem;
+            background-color: funciones.usarColor(fondoSecundario);
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            form{
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                h2{
+                    @include typo.font-tSecundario;
+                    text-decoration: none;
+                    width: 50dvw;
+                    font-size: 1.8rem;
+                    text-align: start;
+                    
+                }
+                p{
+                    @include typo.font-tRegular;
+                    color: funciones.usarColor(elementosReactivos2);
+                    text-align: start;
+                    font-size: 1.6rem;
+                    margin-top: 1rem
+                }
+                h3{
+                    @include typo.font-tRegular;
+                    text-decoration: underline;
+                    text-align: center;
+                }
+                div{
+                    align-self: flex-start;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    width: 100%;
+                    label{
+                        @include typo.font-tSmall;
+                        width: 100%;
+                        text-align: center;
+                        
+                        input {
+                            margin-top: 0.5rem;
+                            width: 100%;
+                            border: 1px solid funciones.usarColor(elementosReactivos1);
+                            border-radius: 8px;
+                        }
+                    }
+                }
+                button{
+                    margin: 1rem;
+                    width: 400px;
+                    align-self: center;
+                }
+            }
+        }
+    }
+    .product-description{
+        width: 100%;
+        padding: 3.5rem;
+        h2{
+            @include typo.font-tSecundario;
+            text-decoration: none;
+            width: 50dvw;
+            font-size: 1.8rem;
+            text-align: start;
+            margin-bottom: 1.5rem;
+        }
+    };
+    .product-questions{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        img{
+            margin-bottom: 0.5rem;
+        }
+        p{
+            margin-bottom: 0.5rem;
+            color: funciones.usarColor(iconosELinks);
+        }
+        button{
+            a{
+                color:funciones.usarColor(fondoPrincipal);
+                text-decoration: underline;
+            }
+        }
+    }
+}
