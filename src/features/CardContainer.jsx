@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { CardProduct } from "../components/CardProduct";
+import { ProductListCards } from "../components/ProductListCards";
 import { Button } from "../components/Button";
 
 import { getData } from "../async";
@@ -10,7 +10,7 @@ import { getData } from "../async";
 export function CardContainer(props){
     
 
-    const [i,setI] = useState(1);
+    const [i,setI] = useState(0);
     
     const [productData, setProductData] = useState([]);
     const [productShow, setProductShow] = useState([]);
@@ -63,7 +63,6 @@ export function CardContainer(props){
                     auxInfo = auxArray;
                 });
             } else{
-                console.log("Entrooooo")
                 auxInfo = info;
             }
             
@@ -83,50 +82,52 @@ export function CardContainer(props){
     },[props.category])
 
     const handleShowProductM = ()=>{
-        setI(i-1);
-        console.log(i)
-        //i--
-        if(i>=0){
-            const nextProducts = productData.slice(i, i + 4).map((product, index) => {
-            let className = "";
 
-            if (index < 3) {
-                if (index === 0){
-                    className = "ingresa-derecha";
-                } else{
-                    className = "move-right"; 
+        if(i - 1 >= 0){
+            const iCount = i - 1;
+            setI(iCount);
+            console.log("i:",i)
+            console.log("iCount:", iCount)
+            //i--
+            
+            const nextProducts = productData.slice(iCount, iCount + 4).map((product, index) => {
+                let className = "";
+
+                if (index < 3) {
+                    if (index === 0){
+                        className = "ingresa-derecha";
+                    } else{
+                        className = "move-right"; 
+                    }
+                } else {
+                className = "desaparece-derecha"; 
                 }
-            } else {
-            className = "desaparece-derecha"; 
-            }
 
-            return {
-            ...product,
-            class: className,
-            };
-        });
-        setProductShow(nextProducts)
+                return {
+                ...product,
+                class: className,
+                };
+            });
+            setProductShow(nextProducts);
 
-        setTimeout(()=>{
-            const nextProducts = productData.slice(i, i + 3).map(product => ({
-            ...product,
-            class: ""
-        }));
-        
-        setProductShow(nextProducts)
-        },650)
-        }else{
-            setI(i + 1);
-            console.log(i)
-            //i++
-        }
+            setTimeout(()=>{
+                const nextProducts = productData.slice(iCount, iCount + 3).map(product => ({
+                ...product,
+                class: ""
+            }));
+            
+            setProductShow(nextProducts)
+            },650)
+        };
     }
     const handleShowProductP = ()=>{
+        const iCount = i + 1;
         
-        setI(i + 1); 
-        console.log(i)
+        setI(iCount); 
+        console.log("i:",i)
+        console.log("iCount:", iCount)
         //i++
-        const nextProducts = productData.slice(i-1, i + 3).map((product, index) => {
+        const nextProducts = productData.slice(iCount-1, iCount + 3).map((product, index) => {
             let className = "";
 
             if (index < 3) {
@@ -147,7 +148,7 @@ export function CardContainer(props){
         setProductShow(nextProducts)
 
         setTimeout(()=>{
-            const nextProducts = productData.slice(i, i + 3).map(product => ({
+            const nextProducts = productData.slice(iCount, iCount + 3).map(product => ({
             ...product,
             class: ""
         }));
@@ -167,11 +168,11 @@ export function CardContainer(props){
 
             <div className="card-container">
                 <button className="arrow" onClick={handleShowProductM}><img src="assets/img/icons/arrow_left.svg" alt="izquierda" /></button>
-                {productShow.map((task) => (
-                    <CardProduct key={task.id} id={task.id} productName={task.title} price={task.price} img={task.image} class={task.class}/>
-                ))}
+                <ProductListCards productShow={productShow}/>
                 <button className="arrow" onClick={handleShowProductP}><img src="assets/img/icons/arrow_right.svg" alt="derecha" /></button>
             </div>
+
+
             <Button className={props.classButton} text=""><Link to={"/products"}>Ver todo el catalogo</Link></Button>
 
         </section>

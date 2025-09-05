@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom"
-import { CardProduct } from "../components/CardProduct";
+import { useParams } from "react-router-dom"
+import { ProductListCards } from "../components/ProductListCards";
 
 
 
@@ -9,8 +9,6 @@ export function ProductCategory(){
     const PARAMS = useParams();
 
     const URL = `https://fakestoreapi.com/products/`;
-    
-
     
     useEffect(()=>{
         async function getData(){
@@ -31,13 +29,10 @@ export function ProductCategory(){
         getData();
     },[PARAMS.category, URL]);
 
-
     return(
         <section className="category-products">
             <h2 className="seccion">{(PARAMS.category).toUpperCase()}</h2>
-            {data.map((info) =>(
-                <CardProduct key={info.id} id={info.id} productName={info.title} price={info.price} img={info.image} class={info.class}/>
-            ))}
+            <ProductListCards productShow={data}/>
         </section>
     )
 }

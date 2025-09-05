@@ -1,35 +1,18 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import { Button } from "../components/Button";
 
-export function ItemDetail(){
-    const [data, setData] = useState({});
-    const PARAMS = useParams();
-    const URL = `https://fakestoreapi.com/products/${PARAMS.id}`;
-    useEffect(()=>{        
-        async function getData(){
-            try{
-                const resultadoCrudo = await fetch(URL);
-                const resultado = await resultadoCrudo.json();
-                setData(resultado);
-                console.log(data);
-            } catch{
-                alert("Error al Cargar datos de la API "+ URL);
-            }
-        }
-        getData();
-    },[]);
+export function ItemDetail(props){
 
 
     return(
         <section className="individual-product">
             <div className="product-selection">
-                <img src={data.image} alt="Foto Adjunta al Producto" />
+                <img src={props.image} alt="Foto Adjunta al Producto" />
                 <div>
                     <form action="">
-                        <h2>{data.title}</h2>
-                        <p>${data.price}</p>
+                        <h2>{props.title}</h2>
+                        <p>${props.price}</p>
                         <h3>Tamaño</h3>
                         <div>
                             <label>
@@ -68,7 +51,7 @@ export function ItemDetail(){
             </div>
             <div className="product-description">
                 <h2>Descripcion</h2>
-                <p>{data.description}</p>
+                <p>{props.description}</p>
             </div>
             <div className="product-questions">
                 <img src="/proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/assets/img/icons/github.svg" alt="Github Icono"/>
