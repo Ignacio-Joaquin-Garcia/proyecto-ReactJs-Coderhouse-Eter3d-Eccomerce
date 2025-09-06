@@ -11,7 +11,7 @@
 /* Layout de Views */
 @use "views/products";
 @use "views/itemDetail";
-
+@use "views/cartList";
 
 
 /* Importamos componentes con Logica*/
@@ -19,6 +19,7 @@
 @use "components/input";
 @use "components/cardContainer";
 @use "components/customOrder";
+@use "components/cartProduct";
 /* Importamos componentes Estaticos*/
 @use "components/static/presentation";
 @use "components/static/cardProduct";

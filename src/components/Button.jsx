@@ -1,5 +1,5 @@
 
-
+//ClassNames posibles: links(color azul), reactivo50(color naranja semitransparente)
 export function Button(props){
 
     return(

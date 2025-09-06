@@ -1,0 +1,50 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/funciones";
+@use "../base/typo";
+
+.cart-product{
+    display: grid;
+    grid-template-columns: 1fr, 5fr, 2fr;
+    grid-template-rows: 2fr;
+    align-items: center;
+    width: 85%;
+    background-color: funciones.usarColor(fondoPrincipal);
+    border-radius: 3.125rem;
+    padding: 1rem;
+    margin: 1rem 0;
+    input{
+        width: 51px;
+        grid-column: 0;
+        grid-row-start: 0;
+        grid-row-end: 2;
+        align-self: center;
+        justify-self: center;
+    }
+    .cart-info{
+        grid-column-start: 2;
+        grid-column-end: 5;
+    }
+    .cart-product{
+        grid-row: 0;
+        justify-self: self-start;
+        padding: 0;
+        margin-bottom: 0.5rem;
+        @include typo.font-tRegular;
+    }
+    .cart-description{
+        @include typo.font-tSmall;
+        opacity: 80%;
+        grid-row: 1;
+        justify-self: self-start;
+
+    }
+    .cart-price{
+        @include typo.font-tRegular;
+        color: funciones.usarColor(elementosReactivos1);
+        font-size: clamp(0.1rem, 0.895vw + 0.239rem, 1.713rem);
+        grid-column-start: 5;
+        grid-row-start: 0;
+        grid-row-end: 2;
+    }
+}
