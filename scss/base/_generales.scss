@@ -5,6 +5,13 @@
 
 body{
     background-color: funciones.usarColor(fondoSecundario);
+    height: 100%;
+    div{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
 }
 
 :is(h1,h2,h3,h4,p,legend, img){

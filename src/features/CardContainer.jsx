@@ -157,6 +157,8 @@ export function CardContainer(props){
         },650)
     }
 
+    
+
 
 
     return(
@@ -168,7 +170,7 @@ export function CardContainer(props){
 
             <div className="card-container">
                 <button className="arrow" onClick={handleShowProductM}><img src="assets/img/icons/arrow_left.svg" alt="izquierda" /></button>
-                <ProductListCards productShow={productShow}/>
+                <ProductListCards productShow={productShow} />
                 <button className="arrow" onClick={handleShowProductP}><img src="assets/img/icons/arrow_right.svg" alt="derecha" /></button>
             </div>
 

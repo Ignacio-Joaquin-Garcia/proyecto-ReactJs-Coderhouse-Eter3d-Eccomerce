@@ -3,6 +3,7 @@
 @use "../utilities/funciones";
 @use "../base/typo";
 main{
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-items: center;
@@ -11,4 +12,5 @@ main{
         text-align: center;
         align-self: center;
     }
+    
 }

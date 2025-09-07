@@ -1,5 +1,9 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+
+import { ProductsProvider } from "./context/ProductsContext"
+import { DbProvider } from './context/dataBaseContext.jsx'
+
 import App from './App.jsx'
 import '../css/style.css'
 
@@ -8,6 +12,10 @@ const VDOMElement = createRoot(DOMElement)
 
 VDOMElement.render(
   <StrictMode>
-    <App />
+    <DbProvider>
+      <ProductsProvider>
+        <App /> 
+      </ProductsProvider>
+    </DbProvider>
   </StrictMode>,
 )

@@ -7,7 +7,7 @@ import { Products } from './pages/Products';
 import { ItemDetailContainer } from "./pages/ItemDetailContainer";
 import { ProductCategory } from './pages/ProductCategory';
 import { CartList } from "./pages/CartList";
-import { ProductsProvider } from "./context/ProductsContext"
+
 
 function App() {
   
@@ -15,7 +15,6 @@ function App() {
   return (
     <BrowserRouter basename="/proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/">
       <Navbar/>
-      <ProductsProvider>
         <Routes>
           <Route exact path="/" element={<HomeComponent />}/>
           <Route exact path="/products" element={<Products />}/>
@@ -24,7 +23,6 @@ function App() {
           <Route exact path="/contact" element={<HomeComponent />}/>
           <Route exact path="/cartList" element={<CartList />}/>
         </Routes>
-      </ProductsProvider>
       <Footer/>
     </BrowserRouter>
   )

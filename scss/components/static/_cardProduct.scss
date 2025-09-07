@@ -11,8 +11,8 @@
     background-color: funciones.usarColor(fondoPrincipal);
     box-shadow: 1px 1px 2px rgba(85, 85, 85, 0.55);
     border-radius: 4.25rem;
-    width: 20.0625rem;
-    height: 31.5rem;
+    width: 22.0625rem;
+    height: 35.5rem;
     padding: 1.5rem;
     img{
         border-radius: 2.1875rem;
@@ -50,6 +50,26 @@
         width: 14.3125rem;
         height: 2.0625rem;
         margin: 0.45rem 0
+    }
+    .stock-select{
+        h3{
+            margin-top: 0.5rem;
+            text-align: center;
+            font-size: 16px;
+        }
+        div{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            .left-button{
+                width: 2rem;
+                height: 2rem;
+            }
+            p{
+                width: 50px;
+            }
+        }
     }
 }
 .ingresa-izquierda{
