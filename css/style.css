@@ -11,11 +11,6 @@ body {
   background-color: #2A2A2A;
   height: 100%;
 }
-body div {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 
 :is(h1, h2, h3, h4, p, legend, img) {
   font-family: "Inter", sans-serif;
@@ -628,6 +623,15 @@ textarea:focus {
 }
 
 /*  Correspondiente al codigo general   */
+.cart-product-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
 .cart-product {
   display: grid;
   grid-template-columns: 1fr 5fr 1fr 1fr;
@@ -661,6 +665,7 @@ textarea:focus {
   grid-column-start: 2;
   grid-column-end: 3;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 .cart-product .cart-info .cart-product {
@@ -700,6 +705,7 @@ textarea:focus {
   grid-row-start: 0;
   grid-row-end: 2;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-items: center;
 }
@@ -732,6 +738,95 @@ textarea:focus {
   font-size: clamp(0.1rem, 0.895vw + 0.239rem, 1.713rem);
 }
 
+.delete-item {
+  width: 60px;
+  height: 70px;
+  position: relative;
+  display: flex;
+  cursor: pointer;
+}
+
+.delete-item img {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.trash-top {
+  clip-path: inset(0 0 68% 0);
+  transform-origin: bottom center;
+}
+
+.trash-bottom {
+  clip-path: inset(32% 0 0 0);
+}
+
+.open {
+  animation-name: trashMove;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+.cart-remove {
+  animation-name: cartRemove;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes trashMove {
+  0% {
+    transform: translate(0, 0);
+    scale: 1;
+  }
+  50% {
+    transform: translate(-10px, -40px) rotateZ(-35deg);
+    scale: 1.2;
+  }
+  100% {
+    transform: translate(0, 0);
+    scale: 1;
+  }
+}
+@keyframes cartRemove {
+  0% {
+    scale: 1;
+  }
+  40% {
+    transform: translate(-750px, -220px);
+    scale: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-1000px, 100px) rotateZ(-10deg);
+  }
+}
+.alert-trash {
+  animation-name: trashAlert;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes trashAlert {
+  0% {
+    scale: 1;
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translateY(0, -150px);
+    scale: 1.5;
+  }
+  100% {
+    transform: translateY(0, 0px);
+    scale: 1;
+  }
+}
 /* Importamos componentes Estaticos*/
 /*  Correspondiente al codigo general   */
 .presentation {

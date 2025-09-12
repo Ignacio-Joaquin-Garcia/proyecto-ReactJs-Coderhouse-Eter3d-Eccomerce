@@ -6,7 +6,7 @@ import { useContext, useState } from "react"
 
 export function CardProduct(props){
     const [animation, setAnimation] = useState("");
-    const [stockSelect, setStockSelect] = useState(0);
+    const [stockSelect, setStockSelect] = useState(1);
     const cartContext = useContext(ProductsContext);
 
     const handleCartFirstTouch = ()=>{
@@ -23,7 +23,7 @@ export function CardProduct(props){
         }
         console.log(cartProduct);
         cartContext.addItemToCart(cartProduct);
-        setStockSelect(0)
+        setStockSelect(1)
         setAnimation("");
     }
 
@@ -33,7 +33,7 @@ export function CardProduct(props){
         setStockSelect(newStock)
     }
     const handleStockSelectM = ()=>{
-        if(stockSelect > 0){
+        if(stockSelect > 1){
             const newStock = stockSelect - 1;
             setStockSelect(newStock);
         }

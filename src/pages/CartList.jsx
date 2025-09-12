@@ -8,12 +8,21 @@ import { ProductsContext } from "../context/ProductsContext"
 export function CartList() {
     const cartContext = useContext(ProductsContext);
 
+    const stockOnCartsChangue = (cartProductData)=>{
+        cartContext.changeItemInCart(cartProductData);
+    }
+
+    const removeItem = (id)=>{
+        cartContext.removeItemFromCart(id);
+        console.log("borrando...")
+    }
+
 
     return (
         <main className="cart-list">
             <h1>Tu Carrito de Encargos</h1>
             {cartContext.listaProds.map((task) => (
-                <CartProduct key={task.id} id={task.id} productName={task.productName} description={task.description} price={task.price} img={task.img} stockSelected={task.stockSelected} class={task.class}/>
+                <CartProduct key={task.id} id={task.id} productName={task.productName} description={task.description} price={task.price} img={task.img} stockSelected={task.stockSelected} class={task.class} onChange={stockOnCartsChangue} onTrashClick={removeItem}/>
             ))}
             
 
