@@ -7,6 +7,10 @@ import { Products } from './pages/Products';
 import { ItemDetailContainer } from "./pages/ItemDetailContainer";
 import { ProductCategory } from './pages/ProductCategory';
 import { CartList } from "./pages/CartList";
+import { Login } from "./pages/Login";
+import { Register } from "./pages/Register";
+import { AgregarProdAdmin } from "./pages/AgregarProdAdmin";
+
 
 import { Toaster } from "react-hot-toast";
 
@@ -35,6 +39,9 @@ function App() {
             <Route exact path="/products/category/:category" element={<ProductCategory />}/>
             <Route exact path="/contact" element={<HomeComponent />}/>
             <Route exact path="/cartList" element={<CartList />}/>
+            <Route exact path="/login" element={<Login />}/>
+            <Route exact path="/register" element={<Register />}/>
+            <Route exact path="/agregar-prod" element={<AgregarProdAdmin />}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

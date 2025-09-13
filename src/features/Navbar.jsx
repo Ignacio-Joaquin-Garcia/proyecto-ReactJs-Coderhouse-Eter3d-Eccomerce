@@ -72,7 +72,7 @@ export function Navbar() {
         <header className={scrollBar}>
             <img src="assets/img/logo.png" alt="Logo" />
             <div className="search">
-                <input type="text" />
+                <input placeholder='Buscar Productos' type="text" />
             </div>
             <nav>
                 <ul className='lista-principal'>
@@ -86,8 +86,8 @@ export function Navbar() {
                         </ul>
                     </li>
                     <li><Link to="/">Contacto</Link></li>
-                    <li><Link to="/">Ingresá</Link></li>
-                    <li><Link to="/">Creá tu Cuenta</Link></li>
+                    <li><Link to="/login">Ingresá</Link></li>
+                    <li><Link to="/register">Creá tu Cuenta</Link></li>
                 </ul>
             </nav>
             <CartWidget/>

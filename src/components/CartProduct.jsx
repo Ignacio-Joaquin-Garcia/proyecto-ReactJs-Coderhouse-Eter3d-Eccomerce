@@ -58,7 +58,6 @@ export function CartProduct(props) {
                 </div>
                 <div className="cart-price">
                     <p>${price}</p>
-
                 </div >
             </div>
         </div>

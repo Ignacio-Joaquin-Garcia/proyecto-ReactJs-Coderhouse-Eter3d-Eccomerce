@@ -1,0 +1,44 @@
+@use "../utilities/variables";
+@use "../utilities/mixins";
+@use "../utilities/funciones";
+@use "../base/typo";
+
+.login-component{
+    background-color: funciones.usarColor(fondoPrincipal);
+    width: 50rem;
+    height: 30rem;
+    border-radius: 50px;
+    margin: 7rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 1.5rem 0;
+        gap: 1rem;
+    }
+    h1{
+        @include typo.font-tSecundario;
+
+    }
+    p{
+        @include typo.font-tRegular;
+        font-style: italic;
+    }
+    .inputs{
+        background-color: funciones.usarColor(textoPrincipal);
+        border-radius: 10px;
+        input{
+            background-color: transparent; 
+            color: funciones.usarColor(fondoPrincipal);
+            width: 600px;
+            margin-left: 1.25rem;
+        }
+        img{
+            margin-right: 1.25rem;
+            width: 35px;
+        }
+    }
+}

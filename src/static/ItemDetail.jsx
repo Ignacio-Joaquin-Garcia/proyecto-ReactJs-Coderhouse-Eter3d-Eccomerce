@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { Button } from "../components/Button";
 
 export function ItemDetail(props){
-
+    
 
     return(
         <section className="individual-product">

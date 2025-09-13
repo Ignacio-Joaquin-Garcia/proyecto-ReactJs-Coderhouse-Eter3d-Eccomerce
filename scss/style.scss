@@ -12,7 +12,9 @@
 @use "views/products";
 @use "views/itemDetail";
 @use "views/cartList";
-
+@use "views/login";
+@use "views/register";
+@use "views/agregarProdAdmin";
 
 /* Importamos componentes con Logica*/
 @use "components/button";

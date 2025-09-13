@@ -1,9 +1,17 @@
-import { createContext, useState } from "react"
+import { createContext, useState, useEffect } from "react"
+import { getData } from "../firebase";
 
 export const DataBaseContext = createContext();
 
 export function DbProvider(props){
-    
+    const [dataProducts, setDataProducts] = useState([])
+
+    useEffect(()=>{
+        const db = getData();
+        setDataProducts(db);
+        
+        
+    }, []);
 
     //Funciones del context
     
@@ -13,7 +21,7 @@ export function DbProvider(props){
 
 
     const datosContext = {
-        item:0
+        dataProducts,
         
     }
 

@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import { ProductsProvider } from "./context/ProductsContext"
-import { DbProvider } from './context/dataBaseContext.jsx'
+import { DbProvider } from './context/DataBaseContext.jsx'
 
 import App from './App.jsx'
 import '../css/style.css'
