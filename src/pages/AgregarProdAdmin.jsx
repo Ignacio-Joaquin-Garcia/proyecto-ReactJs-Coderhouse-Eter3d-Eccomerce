@@ -26,7 +26,7 @@ export function AgregarProdAdmin() {
                         <Input onChange={(e)=>{setDescription(e.target.value)}} placeholder="Descripción del Producto" type="text"></Input>
                         <Input onChange={(e)=>{setCategory(e.target.value)}} placeholder="Categoria del Producto" type="text"></Input>
                         <Input onChange={(e)=>{setPrice(e.target.value)}} placeholder="Precio del Producto" type="number"></Input>
-                        <Input onChange={(e)=>{setImage(e.target.value)}} placeholder="Imagen del Producto" type="text"></Input>
+                        <Input onChange={(e)=>{setImage(e.target.value)}} placeholder="Imagen del Producto" type="url"></Input>
                         <div>
                             <p>Tamaño</p>
                             <div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 
+import { AddToCart } from "../components/addToCart";
 import { Button } from "../components/Button";
 
 export function ItemDetail(props){
@@ -10,11 +11,11 @@ export function ItemDetail(props){
             <div className="product-selection">
                 <img src={props.image} alt="Foto Adjunta al Producto" />
                 <div>
-                    <form action="">
+                    
                         <h2>{props.title}</h2>
                         <p>${props.price}</p>
                         <h3>Tamaño</h3>
-                        <div>
+                        <div className="item-selector">
                             <label>
                                 Pequeño
                                 <input type="checkbox" />
@@ -29,7 +30,7 @@ export function ItemDetail(props){
                             </label>
                         </div>
                         <h3>Material</h3>
-                        <div>
+                        <div className="item-selector">
                             <label>
                                 XXX
                                 <input type="checkbox" />
@@ -44,9 +45,9 @@ export function ItemDetail(props){
                             </label>
                         </div>
                         
-                        <Button text="Encargar Ahora" className="" type="submit" onClick={undefined}/>
-                        <Button text="Agregar al Carrito" className="reactivo50" type="submit" onClick={undefined}/>
-                    </form>
+                        <Button text="Encargar Ahora" className="" onClick={undefined}/>
+                        <AddToCart id={props.id} productName={props.title} description={props.description} img={props.image} price={props.price}/>
+                    
                 </div>
             </div>
             <div className="product-description">

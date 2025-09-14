@@ -7,9 +7,32 @@
 }
 
 /*  Correspondiente al codigo general   */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 body {
   background-color: #2A2A2A;
-  height: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  grid-row: 1;
+}
+
+main {
+  grid-row: 2;
+}
+
+footer {
+  grid-row: 3;
 }
 
 :is(h1, h2, h3, h4, p, legend, img) {
@@ -299,6 +322,7 @@ footer section:nth-child(3) {
   justify-items: center;
   align-items: center;
   background-color: #0F0F0F;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
 .individual-product .product-selection {
   display: flex;
@@ -309,23 +333,21 @@ footer section:nth-child(3) {
   width: 100%;
 }
 .individual-product .product-selection img {
-  width: 350px;
-  height: 500px;
+  min-width: 350px;
+  max-width: 800px;
+  max-height: 600px;
   border-radius: 30px;
   margin: 1rem;
+  padding: 1rem;
   background-color: #2A2A2A;
 }
 .individual-product .product-selection div {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.individual-product .product-selection div form {
-  display: flex;
-  flex-direction: column;
   height: 100%;
 }
-.individual-product .product-selection div form h2 {
+.individual-product .product-selection div h2 {
   font-family: "Inter", sans-serif;
   font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
   font-weight: 750;
@@ -338,18 +360,22 @@ footer section:nth-child(3) {
   width: 50dvw;
   font-size: clamp(0.875rem, 0.7543rem + 0.6435vw, 1.8rem);
   text-align: start;
+  padding-top: 2rem;
+  padding-left: 2rem;
 }
-.individual-product .product-selection div form p {
+.individual-product .product-selection div p {
   font-family: "Inter", sans-serif;
   font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
   color: #FF6F00;
+  width: 100%;
   text-align: start;
   font-size: clamp(0.8125rem, 0.7098rem + 0.5478vw, 1.6rem);
   margin-top: 1rem;
+  padding-left: 2rem;
 }
-.individual-product .product-selection div form h3 {
+.individual-product .product-selection div h3 {
   font-family: "Inter", sans-serif;
   font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
@@ -357,14 +383,14 @@ footer section:nth-child(3) {
   text-decoration: underline;
   text-align: center;
 }
-.individual-product .product-selection div form div {
+.individual-product .product-selection div .item-selector {
   align-self: flex-start;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
 }
-.individual-product .product-selection div form div label {
+.individual-product .product-selection div .item-selector label {
   font-family: "Inter", sans-serif;
   font-size: clamp(0.6875rem, 0.6337rem + 0.287vw, 1.1rem);
   font-weight: normal;
@@ -372,13 +398,31 @@ footer section:nth-child(3) {
   width: 100%;
   text-align: center;
 }
-.individual-product .product-selection div form div label input {
+.individual-product .product-selection div .item-selector label input {
   margin-top: 0.5rem;
   width: 100%;
   border: 1px solid #FF5722;
   border-radius: 8px;
 }
-.individual-product .product-selection div form button {
+.individual-product .product-selection div .stock-select {
+  margin-top: 1rem;
+}
+.individual-product .product-selection div .stock-select div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.individual-product .product-selection div .stock-select div p {
+  width: 100px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.individual-product .product-selection div .stock-select div button {
+  width: 60px;
+}
+.individual-product .product-selection div button {
   margin: 1rem;
   width: 400px;
   align-self: center;
@@ -414,6 +458,9 @@ footer section:nth-child(3) {
 .individual-product .product-questions p {
   margin-bottom: 0.5rem;
   color: #4DD0E1;
+}
+.individual-product .product-questions button {
+  margin-bottom: 3rem;
 }
 .individual-product .product-questions button a {
   color: #0F0F0F;
@@ -554,7 +601,7 @@ footer section:nth-child(3) {
   min-height: 500px;
   background-color: #0F0F0F;
   border-radius: 60px;
-  box-shadow: 5px 5px 30px rgba(123, 86, 67, 0.3);
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
 .order .finish-order h2 {
   font-family: "Inter", sans-serif;
@@ -589,6 +636,7 @@ footer section:nth-child(3) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
 .order .resume h3 {
   align-self: flex-start;
@@ -646,9 +694,9 @@ footer section:nth-child(3) {
   color: rgba(241, 107, 67, 0.9058823529);
   font-weight: bold;
   text-decoration-line: underline;
-  text-decoration-style: dotted;
-  text-decoration-color: #B2EBF2;
-  text-decoration-thickness: 2px;
+  text-decoration-style: wavy;
+  text-decoration-color: #f6f6f6;
+  text-decoration-thickness: 0.5px;
 }
 
 /* Importamos componentes con Logica*/
@@ -1149,6 +1197,7 @@ textarea:focus {
   width: 22.0625rem;
   height: 35.5rem;
   padding: 1.5rem;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
 .card-product img {
   border-radius: 2.1875rem;

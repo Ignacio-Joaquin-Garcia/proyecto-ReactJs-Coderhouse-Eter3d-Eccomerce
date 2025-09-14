@@ -2,14 +2,29 @@ import { Input } from "../components/Input"
 import { Button } from "../components/Button"
 import { CartProduct } from "../components/CartProduct"
 import { ProductsContext } from "../context/ProductsContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
+
+import { createTicket } from "../firebase"
+
+import toast from "react-hot-toast"
 
 export function FinishOrder() {
+    const [user, setUser] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+
+    const [purchaseStatus, setPurchaseStatus] = useState("");
     const cartContext = useContext(ProductsContext)
 
 
     const handleFinishOrder = ()=>{
-
+        if(user != "" && email != "" && phone != ""){
+            const purchaseStatu = createTicket(user, email, phone, cartContext.totalPrice, cartContext.totalQuantity, cartContext.listaProds)
+            setPurchaseStatus(purchaseStatu);
+            console.log(purchaseStatus)
+        } else{
+            toast.error("Debe llenar todos los campos primero⌨️!")
+        }
     }
 
     return (
@@ -17,16 +32,15 @@ export function FinishOrder() {
             <div className="finish-order">
                 <h2>Completar Encargo</h2>
                 <div>
-                    <Input placeholder="Nombre"/>
-                    <Input placeholder="Mail"/>
-                    <Input placeholder="Numero de Telefono"/>
+                    <Input onChange={(e)=>{setUser(e.target.value)}} type="text" placeholder="Nombre"/>
+                    <Input onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Mail"/>
+                    <Input onChange={(e)=>{setPhone(e.target.value)}} type="tel" placeholder="Numero de Telefono"/>
                 </div>
                 <Button onClick={handleFinishOrder} text="Completar Encargo"/>
             </div>
             <div className="resume">
                 <h3>Resumen</h3>
                 <div className="order-resume">
-                    
                     {cartContext.listaProds.map((task) => {
                         console.log(task)
                         return(

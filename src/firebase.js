@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, DocumentReference, getDocs, getFirestore } from "firebase/firestore";
+import { addDoc, collection, DocumentReference, getDocs, getFirestore, serverTimestamp } from "firebase/firestore";
 
 //import { getAnalytics } from "firebase/analytics";
 
@@ -44,6 +44,21 @@ export async function sendData(title, description, category, price, image){
         const docRef = await addDoc(productCollection, newItem);
         toast.success(`Documento creado con exito con ID: ${docRef.id}`)
     } catch(error){
+        toast.error(error);
+    }
+}
+
+export async function createTicket(usuario, email, numeroTelefono, totalCompra, cantidadProductos, listaProducts){
+    toast.loading()
+    const ticketCollection = collection(db, "tickects");
+    const newTicket = {usuario: usuario, email: email, numeroTelefono: numeroTelefono, totalCompra: totalCompra, cantidadProductos: cantidadProductos, compra:{listaProducts}, fechaTicket: serverTimestamp()};
+    try{
+        const docRef = await addDoc(ticketCollection, newTicket);
+        toast.dismiss()
+        toast.success(`Nos contactaremos contigo pronto!!`);
+        toast.success(`Encargo Realizado con exito, tu id de encargo es: ${docRef.id}`);
+        return "si"
+    }catch(error){
         toast.error(error);
     }
 }

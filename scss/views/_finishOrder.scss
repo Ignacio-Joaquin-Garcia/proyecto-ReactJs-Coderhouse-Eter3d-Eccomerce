@@ -17,7 +17,7 @@
         min-height: 500px;
         background-color: funciones.usarColor(fondoPrincipal);
         border-radius: 60px;
-        box-shadow: 5px 5px 30px rgba(123, 86, 67, 0.3);
+        box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
         h2{
             @include typo.font-tSecundario;
             margin: 2rem;
@@ -42,13 +42,12 @@
     .resume{
         width: 35%;
         min-height: 500px;
-
         background-color: funciones.usarColor(fondoPrincipal);
         border-radius: 60px;
         display: flex;
         flex-direction: column;
         align-items: center;
-
+        box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
         h3{
             align-self: flex-start;
             @include typo.font-tRegular;
@@ -97,9 +96,9 @@
                     color: funciones.usarColor(elementosReactivos1-50);
                     font-weight: bold;
                     text-decoration-line: underline;
-                    text-decoration-style:dotted;
-                    text-decoration-color: funciones.usarColor(alternativa2);
-                    text-decoration-thickness: 2px;
+                    text-decoration-style:wavy;
+                    text-decoration-color: #f6f6f6;
+                    text-decoration-thickness: 0.5px;
                 }
             }
         }

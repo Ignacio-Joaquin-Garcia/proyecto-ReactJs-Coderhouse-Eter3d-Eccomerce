@@ -1,52 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
 import { ProductListCards } from "../components/ProductListCards";
 import { Button } from "../components/Button";
-
 import { DataBaseContext } from "../context/DataBaseContext";
 
-//let i = 0;
 export function CardContainer(props){
     const [i,setI] = useState(0);
     const [productData, setProductData] = useState([]);
     const [productShow, setProductShow] = useState([]);
     const dataBaseContext = useContext(DataBaseContext)
 
-/*
-    const loadBack = ()=>{
-        return new Promise((resolve, reject) => {
-            let success = true;
-            if(success){
-                resolve(
-
-                    
-                    //Carga de Datos API
-                    [
-                        {id:1, productName:"Panda", price:5000, categoria: "animales",imgUrl:"https://m.media-amazon.com/images/I/61b+cc8bhML.jpg"},
-                        {id:2, productName:"Stich", price:4500, categoria: "animales", imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_nbf2lTaId266iQmMV0GNiVM8xPBsJFhJYQmO8xks0o1Cm5aO3TzXLgjFC4xS-eRy8pk&usqp=CAU"},
-                        {id:3, productName:"Yoda", price:2000, categoria: "animales", imgUrl:"https://tufigura3d.com/wp-content/uploads/2021/03/Impresion-3D-filamento-vs-resina-scaled.jpg"},
-                        {id:4, productName:"Gatito Hexagonal", categoria: "animales", price:2000, imgUrl:"https://preview.free3d.com/img/2015/12/1688735414812149471/8s69zm9j.jpg"},
-                        {id:5, productName:"Barco 3d", price:300, categoria: "juguetes", imgUrl:"https://img.pccomponentes.com/pcblog/914/impresion-3d-opt.jpg"},
-                        {id:6, productName:"Bee Hive Juego de Mesa", price:20000, categoria: "juguetes", imgUrl:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUpEHvU-1Nf62TnQloJW14VitNf0SLBraMhQ&s"},
-                        {id:7, productName:"Engranaje", price:22345, categoria: "juguetes", imgUrl:"https://ele.chaco.gob.ar/pluginfile.php/1102641/mod_book/chapter/17742/2.jpg"},
-                        {id:8, productName:"Funda Violeta", price:100000, categoria: "fundas", imgUrl:"https://i.pinimg.com/474x/c0/9c/05/c09c0515c51b8b61a98e035b32c6d883.jpg"},
-                        {id:9, productName:"Funda Gato Amarilla", price:100000, categoria: "fundas", imgUrl:"https://recicla3dplabs.wordpress.com/wp-content/uploads/2014/12/img_2770.jpg"},
-                    ]
-                    
-                )
-            } else{
-                //Error de la Carga datos API
-                reject("ERORR")
-            }
-        })
-    }
-*/
-
     useEffect(()=>{
         const apiData = dataBaseContext.dataProducts;
         if(apiData != []){
-            console.log(props.category)
             const auxArray = [];
             let auxInfo;
             if(props.category !== undefined){
@@ -59,9 +25,7 @@ export function CardContainer(props){
             } else{
                 auxInfo = apiData;
             }
-            
             let arrayToShow = [];
-            console.log(auxInfo)
             auxInfo.forEach(element => {
                 arrayToShow.push(element)
             });
@@ -76,7 +40,6 @@ export function CardContainer(props){
             setI(iCount);
             const nextProducts = productData.slice(iCount, iCount + 4).map((product, index) => {
                 let className = "";
-
                 if (index < 3) {
                     if (index === 0){
                         className = "ingresa-derecha";
@@ -86,14 +49,12 @@ export function CardContainer(props){
                 } else {
                 className = "desaparece-derecha"; 
                 }
-
                 return {
                 ...product,
                 class: className,
                 };
             });
             setProductShow(nextProducts);
-
             setTimeout(()=>{
                 const nextProducts = productData.slice(iCount, iCount + 3).map(product => ({
                 ...product,

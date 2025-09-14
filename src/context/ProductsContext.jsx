@@ -59,6 +59,12 @@ export function ProductsProvider(props){
             }
         });
         const preSubidaArray = newCartList;
+        let newTotalPrice = 0;
+        preSubidaArray.forEach((item)=>{
+            newTotalPrice = newTotalPrice + item.price
+            console.log(item.price)
+        })
+        setTotalPriceCart(newTotalPrice);
         setCartList(preSubidaArray);
     }
     const removeItemFromCart = (id)=>{

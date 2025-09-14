@@ -10,6 +10,7 @@
     justify-items: center;
     align-items: center;
     background-color: funciones.usarColor(fondoPrincipal);
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
     .product-selection{
         display: flex;
         flex-direction: row;
@@ -18,64 +19,84 @@
         justify-content: space-evenly;
         width: 100%;
         img{
-            width: 350px;
-            height: 500px;
+            min-width: 350px;
+            max-width: 800px;
+            max-height: 600px;
             border-radius: 30px;
             margin: 1rem;
+            padding: 1rem;
             background-color: funciones.usarColor(fondoSecundario);
         }
         div{
             display: flex;
             flex-direction: column;
             align-items: center;
-            form{
+            height: 100%;
+            
+            h2{
+                @include typo.font-tSecundario;
+                text-decoration: none;
+                width: 50dvw;
+                font-size: clamp(0.875rem, 0.7543rem + 0.6435vw, 1.8rem);
+                text-align: start;
+                padding-top: 2rem;
+                padding-left: 2rem;
+            }
+            p{
+                @include typo.font-tRegular;
+                color: funciones.usarColor(elementosReactivos2);
+                width: 100%;
+                text-align: start;
+                font-size: clamp(0.8125rem, 0.7098rem + 0.5478vw, 1.6rem);
+                margin-top: 1rem;
+                padding-left: 2rem;
+            }
+            h3{
+                @include typo.font-tRegular;
+                text-decoration: underline;
+                text-align: center;
+            }
+            .item-selector{
+                align-self: flex-start;
                 display: flex;
-                flex-direction: column;
-                height: 100%;
-                h2{
-                    @include typo.font-tSecundario;
-                    text-decoration: none;
-                    width: 50dvw;
-                    font-size: clamp(0.875rem, 0.7543rem + 0.6435vw, 1.8rem);
-                    text-align: start;
-                    
-                }
-                p{
-                    @include typo.font-tRegular;
-                    color: funciones.usarColor(elementosReactivos2);
-                    text-align: start;
-                    font-size: clamp(0.8125rem, 0.7098rem + 0.5478vw, 1.6rem);
-                    margin-top: 1rem
-                }
-                h3{
-                    @include typo.font-tRegular;
-                    text-decoration: underline;
-                    text-align: center;
-                }
-                div{
-                    align-self: flex-start;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-around;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 100%;
+                label{
+                    @include typo.font-tSmall;
                     width: 100%;
-                    label{
-                        @include typo.font-tSmall;
+                    text-align: center;
+                    
+                    input {
+                        margin-top: 0.5rem;
                         width: 100%;
-                        text-align: center;
-                        
-                        input {
-                            margin-top: 0.5rem;
-                            width: 100%;
-                            border: 1px solid funciones.usarColor(elementosReactivos1);
-                            border-radius: 8px;
-                        }
+                        border: 1px solid funciones.usarColor(elementosReactivos1);
+                        border-radius: 8px;
                     }
                 }
-                button{
-                    margin: 1rem;
-                    width: 400px;
-                    align-self: center;
+            }
+            .stock-select{
+                margin-top: 1rem;
+                div{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    p{
+                        width: 100px;
+                        margin: 0;
+                        padding: 0;
+                        text-align: center;
+                    }
+                    button{
+                        width: 60px;
+                    }
                 }
+            }
+            button{
+                margin: 1rem;
+                width: 400px;
+                align-self: center;
             }
         }
     }
@@ -104,9 +125,11 @@
             color: funciones.usarColor(iconosELinks);
         }
         button{
+            margin-bottom: 3rem;
             a{
                 color:funciones.usarColor(fondoPrincipal);
                 text-decoration: underline;
+                
             }
         }
     }

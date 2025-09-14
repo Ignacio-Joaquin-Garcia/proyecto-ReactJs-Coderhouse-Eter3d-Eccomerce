@@ -2,13 +2,30 @@
 @use "../utilities/mixins";
 @use "../utilities/funciones";
 @use "../base/typo";
-
+html, body{
+    height: 100%;
+    margin: 0;
+}
 body{
     background-color: funciones.usarColor(fondoSecundario);
-    height: 100%;
-    
+    min-height: 100vh;
     
 }
+#root{
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+header {
+    grid-row: 1;
+}
+main {
+    grid-row: 2;
+}
+footer {
+    grid-row: 3;
+}
+
 
 :is(h1,h2,h3,h4,p,legend, img){
     @include typo.font-tSmall;
