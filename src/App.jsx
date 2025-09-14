@@ -12,6 +12,7 @@ import { Register } from "./pages/Register";
 import { AgregarProdAdmin } from "./pages/AgregarProdAdmin";
 import { FinishOrder } from "./pages/FinishOrder";
 
+
 import { Toaster } from "react-hot-toast";
 
 function App() {

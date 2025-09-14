@@ -7,6 +7,10 @@
     width: 100%;
     .principal-img{
         width: 100%;
+        animation-name: imgEntrada;
+        animation-iteration-count: 1;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
     }
     h1{
         display: flex;
@@ -89,5 +93,13 @@
         opacity: 1;
         transform: rotate(0deg);
         letter-spacing: 0px;
+    }
+}
+@keyframes imgEntrada {
+    from {
+        transform: translate(0px, 100%) scale(0);
+    }
+    to {
+        transform: translate(0px, 0%) scale(1);
     }
 }

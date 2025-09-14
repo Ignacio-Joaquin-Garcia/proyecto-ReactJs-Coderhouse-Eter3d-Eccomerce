@@ -35,3 +35,14 @@ a{
     @include typo.font-tRegular;
     color: funciones.usarColor(iconosELinks);
 }
+
+@keyframes componenteEntrada{
+    from{
+        opacity: 0;
+        scale: 0;
+    }
+    to{
+        opacity: 1;
+        scale: 1;
+    }
+}

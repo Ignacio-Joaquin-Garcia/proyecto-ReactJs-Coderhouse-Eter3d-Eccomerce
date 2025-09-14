@@ -2,12 +2,18 @@
 @use "../utilities/mixins";
 @use "../utilities/funciones";
 @use "../base/typo";
+
 .order{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    width: 100%;
+    animation-name: componenteEntrada;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
     .finish-order{
         display: flex;
         flex-direction: column;
@@ -93,15 +99,72 @@
                 margin-bottom: 2rem;
                 p{
                     @include typo.font-tRegular;
-                    color: funciones.usarColor(elementosReactivos1-50);
+                    color: funciones.usarColor(alternativa2);
                     font-weight: bold;
                     text-decoration-line: underline;
                     text-decoration-style:wavy;
                     text-decoration-color: #f6f6f6;
                     text-decoration-thickness: 0.5px;
                 }
+                .order-total-numbers{
+                    background: linear-gradient(90deg, #ff7e5f, #feb47b);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
             }
         }
         
+    }
+}
+.order-fulfilled{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: orderFinished;
+    animation-iteration-count: 1;
+    animation-duration: 2.5s;
+    animation-timing-function: ease-in-out;
+    .order-finished{
+        background: #355903;
+        background: radial-gradient(circle,rgba(53, 89, 3, 1) 10%, rgba(0, 83, 20, 1) 80%, rgba(0, 189, 57, 1) 89%);
+        width: 800px;
+        height: 300px;
+        border-radius: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+        h2{
+            @include typo.font-tSecundario;
+            margin-bottom: 3rem;
+        }
+        p{
+            @include typo.font-tRegular;
+            .order-id{
+                color: funciones.usarColor(active);
+            }
+        }
+        .order-contact{
+            margin-top: 1rem;
+        }
+        
+    }
+}
+
+@keyframes orderFinished{
+    0%{
+        scale: 0;
+        transform: rotateZ(0deg);
+    }
+    50%{
+        scale: 2;
+        transform: rotateZ(180deg);
+    }
+    100%{
+        scale: 1;
+        transform: rotateZ(360deg);
     }
 }

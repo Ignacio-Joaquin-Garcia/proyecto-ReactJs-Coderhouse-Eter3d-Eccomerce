@@ -11,6 +11,7 @@
     align-items: center;
     background-color: funciones.usarColor(fondoPrincipal);
     box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+    
     .product-selection{
         display: flex;
         flex-direction: row;
@@ -26,13 +27,20 @@
             margin: 1rem;
             padding: 1rem;
             background-color: funciones.usarColor(fondoSecundario);
+            animation-name: imageAppear;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
         }
         div{
             display: flex;
             flex-direction: column;
             align-items: center;
             height: 100%;
-            
+            animation-name: detailAppear;
+            animation-iteration-count: 1;
+            animation-duration: 1s;
+            animation-timing-function: ease-in-out;
             h2{
                 @include typo.font-tSecundario;
                 text-decoration: none;
@@ -111,12 +119,20 @@
             text-align: start;
             margin-bottom: 1.5rem;
         }
+        animation-name: descriptionAppear;
+        animation-iteration-count: 1;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
     };
     .product-questions{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        animation-name: descriptionAppear;
+        animation-iteration-count: 1;
+        animation-duration: 1s;
+        animation-timing-function: ease-in-out;
         img{
             margin-bottom: 0.5rem;
         }
@@ -132,5 +148,30 @@
                 
             }
         }
+    }
+}
+
+@keyframes detailAppear{
+    from{
+        transform: translateX(100%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+@keyframes imageAppear{
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0%);
+    }
+}
+@keyframes descriptionAppear{
+    from{
+        transform: translateY(100%);
+    }
+    to{
+        transform: translateX(0%);
     }
 }

@@ -57,7 +57,7 @@ export async function createTicket(usuario, email, numeroTelefono, totalCompra, 
         toast.dismiss()
         toast.success(`Nos contactaremos contigo pronto!!`);
         toast.success(`Encargo Realizado con exito, tu id de encargo es: ${docRef.id}`);
-        return "si"
+        return docRef.id
     }catch(error){
         toast.error(error);
     }

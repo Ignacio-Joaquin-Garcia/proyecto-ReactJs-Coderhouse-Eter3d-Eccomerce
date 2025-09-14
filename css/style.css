@@ -50,6 +50,16 @@ a {
   color: #4DD0E1;
 }
 
+@keyframes componenteEntrada {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
 /*  Importamos el Layout  */
 /*  Correspondiente al codigo general   */
 header {
@@ -340,12 +350,20 @@ footer section:nth-child(3) {
   margin: 1rem;
   padding: 1rem;
   background-color: #2A2A2A;
+  animation-name: imageAppear;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
 .individual-product .product-selection div {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
+  animation-name: detailAppear;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
 .individual-product .product-selection div h2 {
   font-family: "Inter", sans-serif;
@@ -430,6 +448,10 @@ footer section:nth-child(3) {
 .individual-product .product-description {
   width: 100%;
   padding: 3.5rem;
+  animation-name: descriptionAppear;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
 .individual-product .product-description h2 {
   font-family: "Inter", sans-serif;
@@ -451,6 +473,10 @@ footer section:nth-child(3) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  animation-name: descriptionAppear;
+  animation-iteration-count: 1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
 }
 .individual-product .product-questions img {
   margin-bottom: 0.5rem;
@@ -467,7 +493,37 @@ footer section:nth-child(3) {
   text-decoration: underline;
 }
 
+@keyframes detailAppear {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes imageAppear {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+@keyframes descriptionAppear {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
 /*  Correspondiente al codigo general   */
+.cart-list {
+  animation-name: componenteEntrada;
+  animation-iteration-count: 1;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
 .cart-list h1 {
   font-family: "Inter", sans-serif;
   font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
@@ -496,6 +552,11 @@ footer section:nth-child(3) {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+  animation-name: componenteEntrada;
+  animation-iteration-count: 1;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
 }
 .login-component div {
   display: flex;
@@ -592,6 +653,11 @@ footer section:nth-child(3) {
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
+  width: 100%;
+  animation-name: componenteEntrada;
+  animation-iteration-count: 1;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
 }
 .order .finish-order {
   display: flex;
@@ -691,14 +757,80 @@ footer section:nth-child(3) {
   font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
   color: #F2F2F2;
-  color: rgba(241, 107, 67, 0.9058823529);
+  color: #B2EBF2;
   font-weight: bold;
   text-decoration-line: underline;
   text-decoration-style: wavy;
   text-decoration-color: #f6f6f6;
   text-decoration-thickness: 0.5px;
 }
+.order .resume .order-resume .order-total .order-total-numbers {
+  background: linear-gradient(90deg, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
+.order-fulfilled {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: orderFinished;
+  animation-iteration-count: 1;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in-out;
+}
+.order-fulfilled .order-finished {
+  background: #355903;
+  background: radial-gradient(circle, rgb(53, 89, 3) 10%, rgb(0, 83, 20) 80%, rgb(0, 189, 57) 89%);
+  width: 800px;
+  height: 300px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+}
+.order-fulfilled .order-finished h2 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  margin-bottom: 3rem;
+}
+.order-fulfilled .order-finished p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
+  font-weight: normal;
+  color: #F2F2F2;
+}
+.order-fulfilled .order-finished p .order-id {
+  color: #D84315;
+}
+.order-fulfilled .order-finished .order-contact {
+  margin-top: 1rem;
+}
+
+@keyframes orderFinished {
+  0% {
+    scale: 0;
+    transform: rotateZ(0deg);
+  }
+  50% {
+    scale: 2;
+    transform: rotateZ(180deg);
+  }
+  100% {
+    scale: 1;
+    transform: rotateZ(360deg);
+  }
+}
 /* Importamos componentes con Logica*/
 /*  Correspondiente al codigo general   */
 button {
@@ -1095,6 +1227,10 @@ textarea:focus {
 }
 .presentation .principal-img {
   width: 100%;
+  animation-name: imgEntrada;
+  animation-iteration-count: 1;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
 }
 .presentation h1 {
   display: flex;
@@ -1184,6 +1320,14 @@ textarea:focus {
     opacity: 1;
     transform: rotate(0deg);
     letter-spacing: 0px;
+  }
+}
+@keyframes imgEntrada {
+  from {
+    transform: translate(0px, 100%) scale(0);
+  }
+  to {
+    transform: translate(0px, 0%) scale(1);
   }
 }
 /*  Correspondiente al codigo general   */

@@ -4,7 +4,7 @@ import { AddToCart } from "../components/addToCart";
 import { Button } from "../components/Button";
 
 export function ItemDetail(props){
-    
+    const handleOrder = ()=>{props.handleOrder(props.id, props.title, Number(props.price), props.description, props.image)}
 
     return(
         <section className="individual-product">
@@ -45,7 +45,7 @@ export function ItemDetail(props){
                             </label>
                         </div>
                         
-                        <Button text="Encargar Ahora" className="" onClick={undefined}/>
+                        <Button text="Encargar Ahora" className="" onClick={handleOrder}/>
                         <AddToCart id={props.id} productName={props.title} description={props.description} img={props.image} price={props.price}/>
                     
                 </div>
