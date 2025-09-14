@@ -1,33 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom"
+import { DataBaseContext } from "../context/DataBaseContext";
 import { ProductListCards } from "../components/ProductListCards";
-
 
 
 export function ProductCategory(){
     const [data, setData] = useState([]);
     const PARAMS = useParams();
-
-    const URL = `https://fakestoreapi.com/products/`;
-    
+    const dataBaseContext = useContext(DataBaseContext)
     useEffect(()=>{
-        async function getData(){
-            try{
-                const resultadoCrudo = await fetch(URL);
-                const resultado = await resultadoCrudo.json();
-                const auxArray = [];
-                resultado.forEach(element => {
+        const apiData = dataBaseContext.dataProducts;
+        if(apiData != []){
+            const auxArray = [];
+                apiData.forEach(element => {
                     if(element.category === PARAMS.category){
                         auxArray.push(element);
                     }
                     setData(auxArray);
                 });
-            } catch{
-                alert("Error al Cargar datos de la API "+ URL);
-            }
         }
-        getData();
-    },[PARAMS.category, URL]);
+    },[PARAMS.category, dataBaseContext.dataProducts]);
 
     return(
         <section className="category-products">

@@ -1,15 +1,17 @@
 import { createContext, useState, useEffect } from "react"
-import { getData } from "../firebase";
+import { getDatabase } from "../firebase";
 
 export const DataBaseContext = createContext();
 
 export function DbProvider(props){
     const [dataProducts, setDataProducts] = useState([])
-
+    
     useEffect(()=>{
-        const db = getData();
-        setDataProducts(db);
-        
+        async function loadData(){
+            const data = await getDatabase();
+            setDataProducts(data)
+        }
+        loadData()
         
     }, []);
 
@@ -22,7 +24,6 @@ export function DbProvider(props){
 
     const datosContext = {
         dataProducts,
-        
     }
 
     return(

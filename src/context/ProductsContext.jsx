@@ -76,7 +76,7 @@ export function ProductsProvider(props){
 
     const datosContext = {
         listaProds: cartList,
-        totalPrice: 0,
+        totalPrice: totalPriceCart,
         totalQuantity: cartNumber,
         addItemToCart,
         changeItemInCart,

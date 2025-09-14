@@ -10,7 +10,7 @@ import { CartList } from "./pages/CartList";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { AgregarProdAdmin } from "./pages/AgregarProdAdmin";
-
+import { FinishOrder } from "./pages/FinishOrder";
 
 import { Toaster } from "react-hot-toast";
 
@@ -18,7 +18,6 @@ function App() {
   
   
   return (
-    <>
       <BrowserRouter basename="/proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/">
         <Navbar/>
           <Toaster toastOptions={{style: {
@@ -42,10 +41,10 @@ function App() {
             <Route exact path="/login" element={<Login />}/>
             <Route exact path="/register" element={<Register />}/>
             <Route exact path="/agregar-prod" element={<AgregarProdAdmin />}/>
+            <Route exact path="/finish-order" element={<FinishOrder />}/>
           </Routes>
         <Footer/>
       </BrowserRouter>
-    </>
   )
 }
 

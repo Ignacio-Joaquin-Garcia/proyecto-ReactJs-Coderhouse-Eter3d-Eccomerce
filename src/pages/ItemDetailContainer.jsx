@@ -1,25 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom"
-
+import { DataBaseContext } from "../context/DataBaseContext";
 import { ItemDetail } from "../static/ItemDetail";
 
 export function ItemDetailContainer(){
     const [data, setData] = useState({});
+    const dataBaseContext = useContext(DataBaseContext)
     const PARAMS = useParams();
-    const URL = `https://fakestoreapi.com/products/${PARAMS.id}`;
     useEffect(()=>{        
-        async function getData(){
-            try{
-                const resultadoCrudo = await fetch(URL);
-                const resultado = await resultadoCrudo.json();
-                setData(resultado);
-                console.log(data);
-            } catch{
-                alert("Error al Cargar datos de la API "+ URL);
-            }
+        const apiData = dataBaseContext.dataProducts;
+        if(apiData != []){
+            console.log(apiData)
+            const itemData = apiData.find((prod) => (prod.id == PARAMS.id))
+            setData(itemData)
         }
-        getData();
-    },[]);
+    },[dataBaseContext.dataProducts, PARAMS.id]);
 
 
     return(

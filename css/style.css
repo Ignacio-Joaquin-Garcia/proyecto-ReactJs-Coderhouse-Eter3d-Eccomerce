@@ -538,6 +538,119 @@ footer section:nth-child(3) {
   margin: 1rem 1rem;
 }
 
+/*  Correspondiente al codigo general   */
+.order {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.order .finish-order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  min-height: 500px;
+  background-color: #0F0F0F;
+  border-radius: 60px;
+  box-shadow: 5px 5px 30px rgba(123, 86, 67, 0.3);
+}
+.order .finish-order h2 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  margin: 2rem;
+}
+.order .finish-order div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order .finish-order div input {
+  background-color: #330B2C;
+  margin-bottom: 2rem;
+  width: 80%;
+  padding: 0.5rem;
+  color: #F2F2F2;
+  font-size: large;
+}
+.order .resume {
+  width: 35%;
+  min-height: 500px;
+  background-color: #0F0F0F;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order .resume h3 {
+  align-self: flex-start;
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
+  font-weight: normal;
+  color: #F2F2F2;
+  margin: 2rem;
+  margin-left: 4rem;
+  text-decoration: underline;
+}
+.order .resume .order-resume {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.order .resume .order-resume .order-resume-prod {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
+  width: 100%;
+}
+.order .resume .order-resume .order-resume-prod h4 {
+  font-size: 21px;
+  width: 160px;
+  overflow: hidden;
+}
+.order .resume .order-resume .order-resume-prod .order-quantity {
+  width: 8pxpx;
+}
+.order .resume .order-resume .order-resume-prod span {
+  color: rgba(241, 107, 67, 0.9058823529);
+}
+.order .resume .order-resume .order-resume-prod img {
+  width: 5rem;
+  max-height: 5rem;
+}
+.order .resume .order-resume .order-total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+.order .resume .order-resume .order-total p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
+  font-weight: normal;
+  color: #F2F2F2;
+  color: rgba(241, 107, 67, 0.9058823529);
+  font-weight: bold;
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+}
+
 /* Importamos componentes con Logica*/
 /*  Correspondiente al codigo general   */
 button {

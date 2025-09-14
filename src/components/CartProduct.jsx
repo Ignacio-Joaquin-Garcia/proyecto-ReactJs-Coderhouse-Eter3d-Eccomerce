@@ -1,4 +1,4 @@
-import { Alert, InputNumber } from "antd";
+import { InputNumber } from "antd";
 import { useState } from "react";
 
 export function CartProduct(props) {

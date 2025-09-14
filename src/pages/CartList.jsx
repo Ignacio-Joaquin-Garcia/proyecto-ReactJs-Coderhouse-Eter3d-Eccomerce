@@ -1,12 +1,14 @@
 import { Button } from "../components/Button"
 import { CartProduct } from "../components/CartProduct"
-import { ProductListCards } from "../components/ProductListCards"
+
 
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import { ProductsContext } from "../context/ProductsContext"
 
 export function CartList() {
     const cartContext = useContext(ProductsContext);
+    const navigate = useNavigate()
 
     const stockOnCartsChangue = (cartProductData)=>{
         cartContext.changeItemInCart(cartProductData);
@@ -16,7 +18,9 @@ export function CartList() {
         cartContext.removeItemFromCart(id);
         console.log("borrando...")
     }
-
+    const handleOrder = ()=>{
+        navigate("/finish-order")
+    }
 
     return (
         <main className="cart-list">
@@ -26,7 +30,7 @@ export function CartList() {
             ))}
             
 
-            <Button className="cart-encargar" text="Encargar Ahora"/>
+            <Button className="cart-encargar" text="Encargar Ahora" onClick={handleOrder}/>
             <Button className="reactivo50" text="Vaciar Carrito" onClick={cartContext.clearCart}/>
         </main>
     )

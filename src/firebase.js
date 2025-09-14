@@ -1,8 +1,10 @@
 import { initializeApp } from "firebase/app";
 import { addDoc, collection, DocumentReference, getDocs, getFirestore } from "firebase/firestore";
 
-import { getAnalytics } from "firebase/analytics";
+//import { getAnalytics } from "firebase/analytics";
+
 import toast from "react-hot-toast";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,17 +19,22 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+//const analytics = getAnalytics(app);
 
 const db = getFirestore(app);
-export async function getData(){
-    const querySnapshot = await getDocs(collection(db, "productos"));
-    const data = []
-    querySnapshot.forEach((item)=>{
-        data.push(item.data());
-    })
-    console.log(data)
-    return data;
+export async function getDatabase(){
+    try{
+        const querySnapshot = await getDocs(collection(db, "productos"))
+        const data = []
+        querySnapshot.forEach((item)=>{
+            data.push({id:item.id, ...item.data()});
+            
+        })
+        console.log(data)
+        return data;
+    } catch (error){
+        toast.error("Error en la carga de datos: "+error);
+    }
 }
 
 export async function sendData(title, description, category, price, image){
@@ -40,3 +47,4 @@ export async function sendData(title, description, category, price, image){
         toast.error(error);
     }
 }
+

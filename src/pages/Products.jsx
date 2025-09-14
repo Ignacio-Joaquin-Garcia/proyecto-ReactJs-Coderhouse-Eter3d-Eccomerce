@@ -1,34 +1,44 @@
 import { CardContainer } from "../features/CardContainer";
-import { getData } from "../async";
-import { useEffect, useState } from "react";
+import { DataBaseContext } from "../context/DataBaseContext";
+
+import { useEffect, useState, useContext } from "react";
 
 export function Products() {
     const [arrayCategory, setArrayCategory] = useState([]);
+    const dataBaseContext = useContext(DataBaseContext)
+
     useEffect(()=>{
-        getData()
-        .then((response) => response.json())
-        .then((apiData) => {
+        const apiData = dataBaseContext.dataProducts;
+        if(apiData != []){
             let i = 0;
             let id = 1;
-            let lastInfo;
+            let lastInfo = [];
             let arrayCategoriasProgreso = [];
+            let añadirCategoria = true;
             apiData.forEach((info) =>{
                 if(i === 0){
                     arrayCategoriasProgreso.push({id:id, category:info.category})
-                    lastInfo = info.category;
+                    lastInfo.push(info.category);
                 }
-                if(info.category !== lastInfo){
+
+                lastInfo.forEach((category)=>{
+                    if(info.category === category){
+                        añadirCategoria = false;
+                    }
+                })
+                if(añadirCategoria){
                     id++;
                     arrayCategoriasProgreso.push({id:id, category:info.category})
-                    lastInfo = info.category;
+                    lastInfo.push(info.category);
                 }
+                añadirCategoria = true;
                 i++;
+                console.log(arrayCategoriasProgreso)
             });
             setArrayCategory(arrayCategoriasProgreso)
             console.log(arrayCategory)
-        })
-        .catch((error)=>{alert("Error en la carga de la API, Error: ", error)});
-    },[]);
+        }
+    },[dataBaseContext.dataProducts]);
 
 
     return (
