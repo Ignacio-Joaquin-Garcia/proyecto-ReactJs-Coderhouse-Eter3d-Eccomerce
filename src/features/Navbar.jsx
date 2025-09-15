@@ -4,11 +4,15 @@ import { Link } from "react-router-dom";
 import { DataBaseContext } from '../context/DataBaseContext';
 import { CartWidget } from '../components/CartWidget';
 
+import { UserDataContext } from '../context/UserDataContext';
 
 export function Navbar() {
     const [scrollBar, setScrollBar] = useState("");
     const [arrayCategory, setArrayCategory] = useState([]);
+    const [userData, setUserData] = useState({});
     const dataBaseContext = useContext(DataBaseContext)
+
+    const userContext = useContext(UserDataContext)
 
     useEffect(()=>{
         let lastScroll = 0;
@@ -54,7 +58,6 @@ export function Navbar() {
                     arrayCategoriasProgreso.push({id:id, category:info.category})
                     lastInfo.push(info.category);
                 }
-
                 lastInfo.forEach((category)=>{
                     if(info.category === category){
                         añadirCategoria = false;
@@ -67,13 +70,13 @@ export function Navbar() {
                 }
                 añadirCategoria = true;
                 i++;
-                console.log(arrayCategoriasProgreso)
             });
             setArrayCategory(arrayCategoriasProgreso)
-            console.log(arrayCategory)
         }
     },[dataBaseContext.dataProducts]);
-
+    useEffect(()=>{
+        setUserData(userContext.userData);
+    },[userContext.userData])
     
 
     return (
@@ -94,8 +97,16 @@ export function Navbar() {
                         </ul>
                     </li>
                     <li><Link to="/">Contacto</Link></li>
-                    <li><Link to="/login">Ingresá</Link></li>
-                    <li><Link to="/register">Creá tu Cuenta</Link></li>
+                    <li className='cuenta'>
+                        <img src="assets/img/icons/user.svg" alt="user" />
+                        <p>Cuenta <span>▽</span></p>
+                        <ul className='sublista-cuenta'>
+                            <p className='usuario'>{userData.usuario === undefined ? "" : `Bienvenido/a ${userData.usuario}`}</p>
+                            <li><Link to="/login">Ingresá</Link></li>
+                            <li><Link to="/register">Creá tu Cuenta</Link></li>
+                        </ul>
+                    </li>
+                    
                 </ul>
             </nav>
             <CartWidget/>

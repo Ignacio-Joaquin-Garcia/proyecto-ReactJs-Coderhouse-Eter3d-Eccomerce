@@ -41,12 +41,9 @@ export function ProductsProvider(props){
             const cartNumberChange = cartNumber + 1;
             const cartListChange = [...cartList, cartProduct];
             const newTotalPrice = totalPriceCart + cartProduct.price;
-            
             setTotalPriceCart(newTotalPrice);
             setCartNumber(cartNumberChange);
             setCartList(cartListChange);
-            console.log("Carrito: " + cartNumber);
-            console.log(cartList);
         })
     }
     const changeItemInCart = (productChange)=>{
@@ -62,15 +59,16 @@ export function ProductsProvider(props){
         let newTotalPrice = 0;
         preSubidaArray.forEach((item)=>{
             newTotalPrice = newTotalPrice + item.price
-            console.log(item.price)
         })
         setTotalPriceCart(newTotalPrice);
         setCartList(preSubidaArray);
     }
     const removeItemFromCart = (id)=>{
-        const idAEliminar = id;
-        const productosActualizados = cartList.filter(item => item.id !== idAEliminar);
+        const prodAEliminar = cartList.find(item => item.id === id);
+        const productosActualizados = cartList.filter(item => item.id !== id);
         const newCartNumber = cartNumber - 1;
+        const newTotalPrice = totalPriceCart - prodAEliminar.price;
+        setTotalPriceCart(newTotalPrice);
         setCartList(productosActualizados);
         setCartNumber(newCartNumber);
     }
@@ -88,7 +86,6 @@ export function ProductsProvider(props){
         changeItemInCart,
         removeItemFromCart,
         clearCart,
-        
     }
 
     return(

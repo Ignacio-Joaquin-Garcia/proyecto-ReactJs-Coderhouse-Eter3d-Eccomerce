@@ -5,7 +5,6 @@ export const DataBaseContext = createContext();
 
 export function DbProvider(props){
     const [dataProducts, setDataProducts] = useState([])
-    
     useEffect(()=>{
         async function loadData(){
             const data = await getDatabase();
@@ -15,17 +14,9 @@ export function DbProvider(props){
         
     }, []);
 
-    //Funciones del context
-    
-
-
-
-
-
     const datosContext = {
         dataProducts,
     }
-
     return(
         <DataBaseContext.Provider value={datosContext}>
             {props.children}

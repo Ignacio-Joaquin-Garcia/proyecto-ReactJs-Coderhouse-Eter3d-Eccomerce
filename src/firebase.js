@@ -28,9 +28,7 @@ export async function getDatabase(){
         const data = []
         querySnapshot.forEach((item)=>{
             data.push({id:item.id, ...item.data()});
-            
         })
-        console.log(data)
         return data;
     } catch (error){
         toast.error("Error en la carga de datos: "+error);
@@ -60,6 +58,32 @@ export async function createTicket(usuario, email, numeroTelefono, totalCompra, 
         return docRef.id
     }catch(error){
         toast.error(error);
+    }
+}
+
+export async function createUser(usuario, email, contraseña){
+    toast.loading()
+    const usersCollection = collection(db, "usuarios");
+    const newUser = {usuario: usuario, email: email, contraseña: contraseña, fechaCreacionCuenta: serverTimestamp()};
+    try{
+        const docRef = await addDoc(usersCollection, newUser);
+        toast.dismiss()
+        toast.success(`Usuario Creado con Exito`);
+    }catch(error){
+        toast.error(error);
+    }
+}
+
+export async function getUsers(){
+    try{
+        const querySnapshot = await getDocs(collection(db, "usuarios"))
+        const users = []
+        querySnapshot.forEach((user)=>{
+            users.push({id:user.id, ...user.data()});
+        })
+        return users;
+    } catch (error){
+        toast.error("Error en la carga de datos: "+error);
     }
 }
 

@@ -6,7 +6,7 @@
 .login-component{
     background-color: funciones.usarColor(fondoPrincipal);
     width: 50rem;
-    height: 30rem;
+    min-height: 30rem;
     border-radius: 50px;
     margin: 7rem 0;
     display: flex;

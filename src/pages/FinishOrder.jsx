@@ -2,8 +2,9 @@ import { Input } from "../components/Input"
 import { Button } from "../components/Button"
 import { OrderFinished } from "./OrderFinished"
 
+import { UserDataContext } from "../context/UserDataContext"
 import { ProductsContext } from "../context/ProductsContext"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 
 import { createTicket } from "../firebase"
 import toast from "react-hot-toast"
@@ -14,8 +15,22 @@ export function FinishOrder() {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
 
-    const cartContext = useContext(ProductsContext)
+    const [contextUser, setContextUser] = useState("");
+    const [contextEmail, setContextEmail] = useState("");
 
+    const cartContext = useContext(ProductsContext)
+    const userContext = useContext(UserDataContext);
+    useEffect(()=>{
+        if((userContext.userData.usuario != undefined) && (userContext.userData.email != undefined)){
+            const usuario = userContext.userData.usuario;
+            const email = userContext.userData.email;
+            setContextUser(usuario);
+            setContextEmail(email);
+            setUser(usuario);
+            setEmail(email);
+        }
+        
+    }, [userContext.userData])
 
     const handleFinishOrder = ()=>{
         if(user != "" && email != "" && phone != ""){
@@ -33,8 +48,8 @@ export function FinishOrder() {
                 <div className="finish-order">
                     <h2>Completar Encargo</h2>
                     <div>
-                        <Input onChange={(e)=>{setUser(e.target.value)}} type="text" placeholder="Nombre"/>
-                        <Input onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Mail"/>
+                        <Input value={contextUser} onChange={(e)=>{setUser(e.target.value)}} type="text" placeholder="Nombre"/>
+                        <Input value={contextEmail} onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Mail"/>
                         <Input onChange={(e)=>{setPhone(e.target.value)}} type="tel" placeholder="Numero de Telefono"/>
                     </div>
                     <Button onClick={handleFinishOrder} text="Completar Encargo"/>

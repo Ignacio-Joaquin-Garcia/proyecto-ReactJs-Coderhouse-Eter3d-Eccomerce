@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 import { ProductsProvider } from "./context/ProductsContext"
 import { DbProvider } from './context/DataBaseContext.jsx'
+import { UserContextProvider } from './context/UserDataContext.jsx'
 
 import App from './App.jsx'
 import '../css/style.css'
@@ -14,7 +15,9 @@ VDOMElement.render(
   <StrictMode>
     <DbProvider>
       <ProductsProvider>
-        <App /> 
+        <UserContextProvider>
+          <App /> 
+        </UserContextProvider>
       </ProductsProvider>
     </DbProvider>
   </StrictMode>,
