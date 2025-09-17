@@ -8,8 +8,28 @@ export function CardContainer(props){
     const [i,setI] = useState(0);
     const [productData, setProductData] = useState([]);
     const [productShow, setProductShow] = useState([]);
+    const [width, setWidth] = useState(0);
     const dataBaseContext = useContext(DataBaseContext)
 
+    useEffect(()=>{
+        function cardResize(){
+            if(window.innerWidth < 1400){
+            setWidth(1);
+            console.log("ancho: "+window.innerWidth)
+            } else if(window.innerWidth >=1400 && window.innerWidth < 1700){
+                setWidth(2);
+            } else{
+                setWidth(3);
+            }   
+        }
+        cardResize();
+        window.addEventListener("resize", ()=>{
+            cardResize();
+        })
+        return ()=>{
+            window.removeEventListener("resize", cardResize);
+        }
+    },[])
     useEffect(()=>{
         const apiData = dataBaseContext.dataProducts;
         if(apiData != []){
@@ -30,17 +50,18 @@ export function CardContainer(props){
                 arrayToShow.push(element)
             });
             setProductData(arrayToShow);
-            setProductShow(arrayToShow.slice(0,3))
+            setProductShow(arrayToShow.slice(0,width))
         }
-    },[props.category, dataBaseContext.dataProducts])
+    },[props.category, dataBaseContext.dataProducts, width])
+    
 
     const handleShowProductM = ()=>{
         if(i - 1 >= 0){
             const iCount = i - 1;
             setI(iCount);
-            const nextProducts = productData.slice(iCount, iCount + 4).map((product, index) => {
+            const nextProducts = productData.slice(iCount, iCount + (width + 1)).map((product, index) => {
                 let className = "";
-                if (index < 3) {
+                if (index < width) {
                     if (index === 0){
                         className = "ingresa-derecha";
                     } else{
@@ -56,7 +77,7 @@ export function CardContainer(props){
             });
             setProductShow(nextProducts);
             setTimeout(()=>{
-                const nextProducts = productData.slice(iCount, iCount + 3).map(product => ({
+                const nextProducts = productData.slice(iCount, iCount + width).map(product => ({
                 ...product,
                 class: ""
                 }));
@@ -67,9 +88,9 @@ export function CardContainer(props){
     const handleShowProductP = ()=>{
         const iCount = i + 1;
         setI(iCount); 
-        const nextProducts = productData.slice(iCount-1, iCount + 3).map((product, index) => {
+        const nextProducts = productData.slice(iCount-1, iCount + width).map((product, index) => {
             let className = "";
-            if (index < 3) {
+            if (index < width) {
                 if (index === 0){
                     className = "desaparece-izquierda";
                 } else{
@@ -85,7 +106,7 @@ export function CardContainer(props){
         });
         setProductShow(nextProducts)
         setTimeout(()=>{
-            const nextProducts = productData.slice(iCount, iCount + 3).map(product => ({
+            const nextProducts = productData.slice(iCount, iCount + width).map(product => ({
             ...product,
             class: ""
             }));

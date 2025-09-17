@@ -1,0 +1,122 @@
+@use "../../utilities/funciones";
+@media (max-width: 800px){
+    .deliveries{
+        div{
+            flex-direction: column;
+        }
+    }
+    .nav-hamburguesa{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        
+        .search{
+            display: none;
+        }
+        nav{
+            ul{
+                display: none;
+            }
+            .cuenta{
+                display: none;
+            }
+            .hamburguesa{
+            background-color: transparent;
+            width: 5rem;
+            height: 5rem;
+            margin: 2rem;
+            img{
+                width: 4rem;
+                height: 4rem;
+                object-fit: cover;
+            }
+            
+        }
+        }
+        a{
+            display: none;
+        }
+        .open-menu{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(89, 89, 89, 0.575);
+            nav{
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: repeat(5, 1fr);
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                justify-content: center;
+                
+            }
+            ul{
+                background-color: funciones.usarColor(alternativa1);
+                border-radius: 20px;
+                padding: 2rem;
+                margin: 4rem;
+                margin-top: 5rem;
+                display: flex !important;
+                flex-direction: column;
+                gap: 4rem;
+                grid-row-start: 2;
+                grid-row-end: 4;
+                grid-column-start: 1;
+                grid-column-end: 4;
+                width: 85%;
+                height: 100%;
+                box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+                .cuenta{
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100%;
+                    
+                    ul{
+                        position: relative;
+                        top: -70px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        height: 200px;
+                        gap: 1.5rem;
+                    }               
+                }
+                .productos{
+                    max-height: 80px;
+                    ul{
+                        position: relative;
+                        top: -70px;
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        
+                        align-items: center;
+                        justify-content: center;
+                        gap: 1.5rem;
+                    }
+                }
+            }
+            
+            a{
+                display: block;
+                grid-row-start: 1;
+                grid-row-end: 2;
+                grid-column-start: 1;
+                grid-column-end: 2;
+                align-self: center;
+            }
+            button{
+                display: block;
+                grid-row-start: 1;
+                grid-row-end: 2;
+                grid-column-start: 3;
+                grid-column-end: 4;
+            }
+        }
+    }
+}

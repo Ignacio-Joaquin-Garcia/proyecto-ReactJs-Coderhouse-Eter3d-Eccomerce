@@ -10,8 +10,9 @@ export function Navbar() {
     const [scrollBar, setScrollBar] = useState("");
     const [arrayCategory, setArrayCategory] = useState([]);
     const [userData, setUserData] = useState({});
+    const [menuHamburguesa, setMenuHamburguesa] = useState("none");
+    const [handleMenuH, setHandleMenuH] = useState("");
     const dataBaseContext = useContext(DataBaseContext)
-
     const userContext = useContext(UserDataContext)
 
     useEffect(()=>{
@@ -76,40 +77,65 @@ export function Navbar() {
     },[dataBaseContext.dataProducts]);
     useEffect(()=>{
         setUserData(userContext.userData);
-    },[userContext.userData])
-    
+    },[userContext.userData]);
+    useEffect(()=>{
+        function displayMenuHamburguesa(){
+            if(window.innerWidth < 800){
+                setMenuHamburguesa("hamburguesa");
+            } else{
+                setMenuHamburguesa("none");
+            }
+        }
+        window.addEventListener("resize", ()=>{
+            displayMenuHamburguesa()
+        })
+        return ()=>{
+            window.removeEventListener("resize", displayMenuHamburguesa);
+        }
+    },[]);
+
+    const handleMenu = ()=>{
+        if(handleMenuH === ""){
+            setHandleMenuH("open-menu");
+        } else{
+            setHandleMenuH("");
+        }
+    }
 
     return (
-        <header className={scrollBar}>
+        <header className={(scrollBar) + (menuHamburguesa === "none" ? "" : " nav-hamburguesa")}>
             <img src="assets/img/logo.png" alt="Logo" />
             <div className="search">
                 <input placeholder='Buscar Productos' type="text" />
             </div>
-            <nav>
-                <ul className='lista-principal'>
-                    <li><Link to="/">Inicio</Link></li>
-                    <li className='productos'>
-                        <Link to="/products">Productos</Link>
-                        <ul className='sublista-categoria'>
-                            {arrayCategory.map((category) =>{
-                                return <li key={category.id}><Link to={`/products/category/${category.category}`}>{category.category}</Link></li>
-                            })}
-                        </ul>
-                    </li>
-                    <li><Link to="/">Contacto</Link></li>
-                    <li className='cuenta'>
-                        <img src="assets/img/icons/user.svg" alt="user" />
-                        <p>Cuenta <span>▽</span></p>
-                        <ul className='sublista-cuenta'>
-                            <p className='usuario'>{userData.usuario === undefined ? "" : `Bienvenido/a ${userData.usuario}`}</p>
-                            <li><Link to="/login">Ingresá</Link></li>
-                            <li><Link to="/register">Creá tu Cuenta</Link></li>
-                        </ul>
-                    </li>
-                    
-                </ul>
-            </nav>
-            <CartWidget/>
+            <div className={handleMenuH}>
+                <nav>
+                    <ul className='lista-principal'>
+                        <li><Link to="/">Inicio</Link></li>
+                        <li className='productos'>
+                            <Link to="/products">Productos</Link>
+                            <ul className='sublista-categoria'>
+                                {arrayCategory.map((category) =>{
+                                    return <li key={category.id}><Link to={`/products/category/${category.category}`}>{category.category}</Link></li>
+                                })}
+                            </ul>
+                        </li>
+                        <li><Link to="/">Contacto</Link></li>
+                        <li className='cuenta'>
+                            <img src="assets/img/icons/user.svg" alt="user" />
+                            <p>Cuenta <span>▽</span></p>
+                            <ul className='sublista-cuenta'>
+                                <p className='usuario'>{userData.usuario === undefined ? "" : `Bienvenido/a ${userData.usuario}`}</p>
+                                <li><Link to="/login">Ingresá</Link></li>
+                                <li><Link to="/register">Creá tu Cuenta</Link></li>
+                            </ul>
+                        </li>
+                        
+                    </ul>
+                    <CartWidget/>
+                    <button onClick={handleMenu} className={menuHamburguesa}><img src="assets/img/icons/menu.svg" alt="" /></button>
+                </nav>
+            </div>
         </header>
         
     )

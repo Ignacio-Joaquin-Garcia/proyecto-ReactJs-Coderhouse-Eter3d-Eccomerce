@@ -60,7 +60,7 @@
         .cart-description{
             align-self: flex-start;
             text-align: left;
-            width:750px;   
+            max-width:750px;   
             @include typo.font-tSmall;
             opacity: 0.8;
             white-space: nowrap;        

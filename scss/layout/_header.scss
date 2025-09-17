@@ -24,137 +24,144 @@ header{
         justify-self: center;
         align-self: center;
         object-fit: cover;
-        width: 58%;
+        max-width: 8.75rem;
         border-radius: 50%;
         padding: .625rem;
     }
-    nav{
-        display: grid;
+    div{
         grid-column-start: 2;
         grid-column-end: 10;
-        grid-row: 2;
-        .lista-principal{
+        nav{
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            grid-template-rows: 1fr;
-            list-style: none;
+            grid-template-columns: repeat(5, 1fr);
+            grid-row: 2;
             align-items: center;
-        }
-        @for $i from 1 through 3{
-            .lista-principal li:nth-child(#{$i}){
-                grid-column: #{$i};
+            justify-items: center;
+            .lista-principal{
+                width: 100%;
+                grid-column-start: 1;
+                grid-column-end: 5;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: 1fr;
+                list-style: none;
+                align-items: center;
+            }
+            @for $i from 1 through 3{
+                .lista-principal li:nth-child(#{$i}){
+                    grid-column: #{$i};
+                    text-align: center;
+                }
+            }
+            .lista-principal li:nth-child(4){
+                grid-column: 6;
                 text-align: center;
             }
-        }
-        .lista-principal li:nth-child(4){
-            grid-column: 6;
-            text-align: center;
-        }
-        .lista-principal li:nth-child(5){
-            grid-column-start: 7;
-            grid-column-end: 9;
-            text-align: center;
-        }
-        
-        .productos{
-            .sublista-categoria{
-                position: absolute;
-                background-color: funciones.usarColor(fondoSecundario);
-                padding: 0.75rem;
-                border-radius: 15px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-                opacity: 0;
-                transform: translateY(-10px);
-                li{
-                    margin: 1rem;
-                    list-style: none;
-                    a{
-                        @include typo.font-tSmall;
-                        color: funciones.usarColor(alternativa2);
-                        &:hover{
-                            color: funciones.usarColor(iconosELinks);
-                        }
-                    }
-                }
+            .lista-principal li:nth-child(5){
+                grid-column-start: 7;
+                grid-column-end: 9;
+                text-align: center;
             }
-            &:hover{
+            
+            .productos{
                 .sublista-categoria{
-                    transition: 1s;
-                    opacity: 1;
-                    transform: translateY(0px);
-                }
-            }
-        }
-        .cuenta{
-            justify-self: flex-end;
-            align-self: flex-start;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-            p{
-                color: funciones.usarColor(iconosELinks);
-                span{
-                    font-size: smaller;
-                    color: rgb(171, 171, 171);
-                }
-            }
-            img{
-                max-width: 3rem;
-            }
-            .sublista-cuenta{
-                position: absolute;
-                background-color: funciones.usarColor(fondoSecundario);
-                padding: 0.75rem;
-                border-radius: 15px;
-                top: 110px;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-                opacity: 0;
-                transform: translateY(-10px);
-                .usuario{
-                    margin: 1rem;
-                    font-size: large;
-                    color: funciones.usarColor(active);
-                }
-                li{
-                    margin: 1rem;
-                    list-style: none;
-                    a{
-                        @include typo.font-tSmall;
-                        color: funciones.usarColor(alternativa2);
-                        &:hover{
-                            color: funciones.usarColor(iconosELinks);
+                    position: absolute;
+                    background-color: funciones.usarColor(fondoSecundario);
+                    padding: 0.75rem;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                    opacity: 0;
+                    transform: translateY(-10px);
+                    li{
+                        margin: 1rem;
+                        list-style: none;
+                        a{
+                            @include typo.font-tSmall;
+                            color: funciones.usarColor(alternativa2);
+                            &:hover{
+                                color: funciones.usarColor(iconosELinks);
+                            }
                         }
                     }
                 }
-            }
-            &:hover{
-                .sublista-cuenta{
-                    transition: 1s;
-                    opacity: 1;
-                    transform: translateY(0px);
+                &:hover{
+                    .sublista-categoria{
+                        transition: 1s;
+                        opacity: 1;
+                        transform: translateY(0px);
+                    }
                 }
             }
-        }
-    }
-    a{
-        justify-self: flex-end;
-        scale: 1.5;
-        grid-row: 1;
-        grid-column: 9;
-        justify-self: center;
-        align-self: center;
-        &:hover{
-            color: funciones.usarColor(elementosReactivos1);
-        }
-        &:active{
-            color: funciones.usarColor(elementosReactivos2);
-        }
-        span{
-            justify-self: flex-start;
-            scale: 1;
-            width: 20px;
-            height: 35px;
+            .cuenta{
+                grid-column-start:6;
+                justify-self: flex-end;
+                align-self: flex-start;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                p{
+                    color: funciones.usarColor(iconosELinks);
+                    span{
+                        font-size: smaller;
+                        color: rgb(171, 171, 171);
+                    }
+                }
+                img{
+                    max-width: 3rem;
+                }
+                .sublista-cuenta{
+                    position: absolute;
+                    background-color: funciones.usarColor(fondoSecundario);
+                    padding: 0.75rem;
+                    border-radius: 15px;
+                    top: 110px;
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                    opacity: 0;
+                    transform: translateY(-10px);
+                    .usuario{
+                        margin: 1rem;
+                        font-size: large;
+                        color: funciones.usarColor(active);
+                    }
+                    li{
+                        margin: 1rem;
+                        list-style: none;
+                        a{
+                            @include typo.font-tSmall;
+                            color: funciones.usarColor(alternativa2);
+                            &:hover{
+                                color: funciones.usarColor(iconosELinks);
+                            }
+                        }
+                    }
+                }
+                &:hover{
+                    .sublista-cuenta{
+                        transition: 1s;
+                        opacity: 1;
+                        transform: translateY(0px);
+                    }
+                }
+            }
+            a{
+                align-self: flex-start;
+                scale: 1.5;
+                grid-column-start: 5;
+                grid-column-end: 6;
+                &:hover{
+                    color: funciones.usarColor(elementosReactivos1);
+                }
+                &:active{
+                    color: funciones.usarColor(elementosReactivos2);
+                }
+                span{
+                    justify-self: flex-start;
+                    scale: 1;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
         }
     }
     .search{
@@ -215,3 +222,4 @@ header{
         opacity: 100%;
     }
 }
+

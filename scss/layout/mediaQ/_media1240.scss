@@ -1,0 +1,116 @@
+@media (max-width: 1240px) {
+    header{
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 1fr 1fr;
+        img{
+            grid-column: 1;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+        nav{
+        display: grid;
+        grid-column-start: 2;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 3;
+            .lista-principal{
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .lista-principal li:nth-child(3){
+                grid-column-start: 3;
+                grid-column-end: 4;
+                text-align: center;
+            }
+            .lista-principal li:nth-child(4){
+                grid-column-start: 4;
+                grid-column-end: 5;
+                text-align: center;
+            }
+        }
+        
+        .search{
+            grid-column-start: 2;
+            grid-column-end: 4; 
+            grid-row-start: 1;
+            grid-row-end: 2;
+            width: 200px;
+        }
+        a{
+            grid-column-start: 5;
+            grid-column-end: 6; 
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+    }
+    figure{
+        width: 100%;
+        iframe{
+            border: none;
+            border-radius: 15px;
+            max-width: 200px;
+            max-height: 200px;
+            margin: 1rem;
+        }
+        
+    }
+    .card-product{
+
+    }
+    .customOrder{
+        div{
+            textarea{
+                max-width: 40rem;
+            }
+        }
+    }  
+    input{
+        max-width: 40rem;
+    }
+    .login-component{
+        max-width: 43rem;
+        input{
+            max-width:35rem;
+        }
+    }
+    .cart-product-container{
+        .cart-info{
+            p{
+                max-width: 450px;
+            }
+        }
+    }
+    .presentation{
+        .presentation-text{
+            .impresora-presentation{
+                max-width: 15rem;
+                max-height: 15rem;
+            }
+        }
+    }
+    .cart-stock{
+        div{
+            div{
+                input{
+                    width: 2rem !important;
+                    height: 2rem !important;
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+    .delete-item{
+        max-width: 3.5rem;
+        max-height: 3.5rem;
+    }
+    .cart-product{
+        input{
+            max-width: 2rem;
+            margin-right: 1rem;
+        }
+        img{
+            max-width: 5rem;
+        }
+    }
+}
