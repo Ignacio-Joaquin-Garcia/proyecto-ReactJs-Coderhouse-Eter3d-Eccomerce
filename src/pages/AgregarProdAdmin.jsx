@@ -3,7 +3,7 @@ import { Button } from "../components/Button";
 import { useContext, useEffect, useState } from "react";
 import { sendData } from "../firebase";
 import { updateDataById, updateDataByName, deleteProductByName, deleteProductById, getTickets } from "../firebase";
-import { TicketCard } from "../components/ticketCard";
+import { TicketCard } from "../components/TicketCard";
 import { UserDataContext } from "../context/UserDataContext";
 import { useNavigate } from "react-router-dom";
 export function AgregarProdAdmin() {
