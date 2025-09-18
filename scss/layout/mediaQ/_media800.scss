@@ -10,7 +10,7 @@
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
-        
+        z-index: 1;
         .search{
             display: none;
         }
@@ -53,9 +53,9 @@
                 justify-content: center;
                 
             }
-            ul{
-                background-color: funciones.usarColor(alternativa1);
-                border-radius: 20px;
+            .lista-principal{
+                background: #020024;
+                background: linear-gradient(169deg,rgba(2, 0, 36, 1) 0%, rgba(145, 68, 0, 0.95) 46%, rgba(5, 0, 0, 1) 100%, rgba(99, 46, 0, 0.91) 63%);
                 padding: 2rem;
                 margin: 4rem;
                 margin-top: 5rem;
@@ -63,19 +63,20 @@
                 flex-direction: column;
                 gap: 4rem;
                 grid-row-start: 2;
-                grid-row-end: 4;
+                grid-row-end: 5;
                 grid-column-start: 1;
                 grid-column-end: 4;
                 width: 85%;
                 height: 100%;
                 box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+                border-radius: 60px;
                 .cuenta{
                     display: flex;
                     flex-direction: column;
                     width: 100%;
                     height: 100%;
-                    
                     ul{
+                        
                         position: relative;
                         top: -70px;
                         display: flex;
@@ -84,21 +85,27 @@
                         justify-content: center;
                         height: 200px;
                         gap: 1.5rem;
-                    }               
+                    }
                 }
                 .productos{
                     max-height: 80px;
                     ul{
-                        position: relative;
-                        top: -70px;
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-                        
-                        align-items: center;
-                        justify-content: center;
-                        gap: 1.5rem;
+                        display: none;
                     }
+                    &:hover{
+                        margin-bottom: 2.5rem;
+                        ul{
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            min-height: 100px;
+                            width: 100%;
+                            position: relative;
+                            left: 0;
+                            margin: 0;
+                        }
+                        
+                    }  
                 }
             }
             
@@ -117,6 +124,46 @@
                 grid-column-start: 3;
                 grid-column-end: 4;
             }
+        }
+    }
+    .customOrder{
+        div{
+            input{
+                max-width: 24rem;
+            }
+            textarea{
+                max-width: 24rem;
+            }
+        }
+    }
+    .card-container{
+        .arrow{
+            max-height: 1.35rem !important;
+            max-width: 2.5rem !important;
+            img{
+                max-width: 7rem;
+                
+            }
+        }
+        .card-product{
+            margin: 0;
+            max-height: 30rem;
+            img{
+                max-width: 12rem;
+                max-height: 12rem
+            }
+            button{
+                max-width: 10rem;
+            }
+        }
+    }
+    .login-component{
+        max-width: 23rem;
+        img{
+            width: 3rem;
+        }
+        input{
+            max-width:15rem;
         }
     }
 }

@@ -305,6 +305,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  align-content: center;
   background-color: #0F0F0F;
   height: 150px;
   width: 100%;
@@ -317,6 +318,7 @@ footer section:nth-child(1) {
 }
 footer section:nth-child(1) h3 {
   font-weight: bold;
+  margin-bottom: 0.75rem;
 }
 footer section:nth-child(1) div {
   display: flex;
@@ -663,12 +665,18 @@ footer section:nth-child(3) {
 /*  Correspondiente al codigo general   */
 .agregar-prod-db {
   width: 65%;
-  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 5rem 0;
+  padding: 1rem;
   border-radius: 50px;
+  background-color: #0F0F0F;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+  animation-name: componenteEntrada;
+  animation-iteration-count: 1;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
 }
 .agregar-prod-db h1 {
   font-family: "Inter", sans-serif;
@@ -706,7 +714,64 @@ footer section:nth-child(3) {
   background-color: #330B2C;
   color: #F2F2F2;
   border-radius: 10px;
+  max-width: 40rem;
   margin: 1rem 1rem;
+}
+
+.actualizar-prod-db {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50px;
+  margin-bottom: 4rem;
+  background-color: #0F0F0F;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+  animation-name: componenteEntrada;
+  animation-iteration-count: 1;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
+.actualizar-prod-db h1 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  margin: 2rem 0;
+}
+.actualizar-prod-db h2 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
+  font-weight: normal;
+  color: #F2F2F2;
+  text-decoration: underline;
+}
+.actualizar-prod-db p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.6875rem, 0.6337rem + 0.287vw, 1.1rem);
+  font-weight: normal;
+  color: #F2F2F2;
+}
+.actualizar-prod-db .inputs-db-change {
+  display: flex;
+  flex-direction: column;
+}
+.actualizar-prod-db .inputs-db-change input {
+  background-color: #330B2C;
+  color: #F2F2F2;
+  border-radius: 10px;
+  max-width: 40rem;
+  margin: 1rem 1rem;
+}
+.actualizar-prod-db .buttons-submit {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 1rem;
 }
 
 /*  Correspondiente al codigo general   */
@@ -880,6 +945,39 @@ footer section:nth-child(3) {
   margin-top: 1rem;
 }
 
+.ordenes-compra-admin h1 {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.ordenes-compra-admin .order-info-important {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  background-color: #330B2C;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 45px;
+}
+.ordenes-compra-admin .order-info-important .info-important p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
+  font-weight: normal;
+  color: #F2F2F2;
+  text-align: center;
+}
+.ordenes-compra-admin .order-info-important .info-important p span {
+  color: #FF5722;
+}
+
 @keyframes orderFinished {
   0% {
     width: 0%;
@@ -894,6 +992,58 @@ footer section:nth-child(3) {
     opacity: 1;
   }
 }
+/*  Correspondiente al codigo general   */
+.redes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+  border-radius: 20px;
+  background-color: #0F0F0F;
+  padding: 1rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+}
+.redes p {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.875rem, 0.7283rem + 0.7826vw, 2rem);
+  font-weight: 750;
+  color: #F2F2F2;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #B2EBF2;
+  text-decoration-thickness: 2px;
+  padding: 1rem;
+}
+.redes div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+.redes div a img:hover {
+  scale: 1.3;
+  transition: 1s;
+}
+
+.o {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
+  font-weight: normal;
+  color: #F2F2F2;
+  font-size: 36px;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.contact {
+  margin-top: 3rem;
+  margin-bottom: 1rem !important;
+}
+.contact button {
+  margin-top: 1rem;
+}
+
 /* Importamos componentes con Logica*/
 /*  Correspondiente al codigo general   */
 button {
@@ -1097,6 +1247,7 @@ textarea:focus {
   border-radius: 3.125rem;
   padding: 1rem;
   margin: 1rem 0;
+  box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
 }
 .cart-product input {
   width: 51px;
@@ -1132,6 +1283,7 @@ textarea:focus {
   grid-column-end: 3;
   grid-row-start: 0;
   grid-row-end: 1;
+  box-shadow: none;
   font-family: "Inter", sans-serif;
   font-size: clamp(0.813rem, 0.895vw + 0.239rem, 1.313rem);
   font-weight: normal;
@@ -1722,6 +1874,21 @@ textarea:focus {
   .cart-product img {
     max-width: 5rem;
   }
+  .agregar-prod-db {
+    width: 96%;
+  }
+  .agregar-prod-db div div input {
+    max-width: 25rem;
+  }
+  .actualizar-prod-db {
+    width: 96%;
+  }
+  .actualizar-prod-db .inputs-db-change input {
+    max-width: 25rem;
+  }
+  .actualizar-prod-db .buttons-submit {
+    flex-direction: column;
+  }
 }
 @media (max-width: 800px) {
   .deliveries div {
@@ -1732,6 +1899,7 @@ textarea:focus {
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    z-index: 1;
   }
   .nav-hamburguesa .search {
     display: none;
@@ -1772,9 +1940,9 @@ textarea:focus {
     align-items: center;
     justify-content: center;
   }
-  .nav-hamburguesa .open-menu ul {
-    background-color: #330B2C;
-    border-radius: 20px;
+  .nav-hamburguesa .open-menu .lista-principal {
+    background: #020024;
+    background: linear-gradient(169deg, rgb(2, 0, 36) 0%, rgba(145, 68, 0, 0.95) 46%, rgb(5, 0, 0) 100%, rgba(99, 46, 0, 0.91) 63%);
     padding: 2rem;
     margin: 4rem;
     margin-top: 5rem;
@@ -1782,20 +1950,21 @@ textarea:focus {
     flex-direction: column;
     gap: 4rem;
     grid-row-start: 2;
-    grid-row-end: 4;
+    grid-row-end: 5;
     grid-column-start: 1;
     grid-column-end: 4;
     width: 85%;
     height: 100%;
     box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+    border-radius: 60px;
   }
-  .nav-hamburguesa .open-menu ul .cuenta {
+  .nav-hamburguesa .open-menu .lista-principal .cuenta {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
   }
-  .nav-hamburguesa .open-menu ul .cuenta ul {
+  .nav-hamburguesa .open-menu .lista-principal .cuenta ul {
     position: relative;
     top: -70px;
     display: flex;
@@ -1805,18 +1974,24 @@ textarea:focus {
     height: 200px;
     gap: 1.5rem;
   }
-  .nav-hamburguesa .open-menu ul .productos {
+  .nav-hamburguesa .open-menu .lista-principal .productos {
     max-height: 80px;
   }
-  .nav-hamburguesa .open-menu ul .productos ul {
-    position: relative;
-    top: -70px;
+  .nav-hamburguesa .open-menu .lista-principal .productos ul {
+    display: none;
+  }
+  .nav-hamburguesa .open-menu .lista-principal .productos:hover {
+    margin-bottom: 2.5rem;
+  }
+  .nav-hamburguesa .open-menu .lista-principal .productos:hover ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
+    min-height: 100px;
+    width: 100%;
+    position: relative;
+    left: 0;
+    margin: 0;
   }
   .nav-hamburguesa .open-menu a {
     display: block;
@@ -1832,6 +2007,39 @@ textarea:focus {
     grid-row-end: 2;
     grid-column-start: 3;
     grid-column-end: 4;
+  }
+  .customOrder div input {
+    max-width: 24rem;
+  }
+  .customOrder div textarea {
+    max-width: 24rem;
+  }
+  .card-container .arrow {
+    max-height: 1.35rem !important;
+    max-width: 2.5rem !important;
+  }
+  .card-container .arrow img {
+    max-width: 7rem;
+  }
+  .card-container .card-product {
+    margin: 0;
+    max-height: 30rem;
+  }
+  .card-container .card-product img {
+    max-width: 12rem;
+    max-height: 12rem;
+  }
+  .card-container .card-product button {
+    max-width: 10rem;
+  }
+  .login-component {
+    max-width: 23rem;
+  }
+  .login-component img {
+    width: 3rem;
+  }
+  .login-component input {
+    max-width: 15rem;
   }
 }
 

@@ -153,6 +153,33 @@
         
     }
 }
+.ordenes-compra-admin{
+    
+    h1{
+        @include typo.font-tSecundario;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+    .order-info-important{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center;
+        background-color: funciones.usarColor(alternativa1);
+        margin: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 45px;
+        .info-important{
+            p{
+                @include typo.font-tRegular;
+                text-align: center;
+                span{
+                    color: funciones.usarColor(elementosReactivos1);
+                }
+            }
+        }
+    }
+}
 
 @keyframes orderFinished{
     0%{

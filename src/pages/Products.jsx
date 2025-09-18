@@ -1,6 +1,5 @@
 import { CardContainer } from "../features/CardContainer";
 import { DataBaseContext } from "../context/DataBaseContext";
-
 import { useEffect, useState, useContext } from "react";
 
 export function Products() {
@@ -20,7 +19,6 @@ export function Products() {
                     arrayCategoriasProgreso.push({id:id, category:info.category})
                     lastInfo.push(info.category);
                 }
-
                 lastInfo.forEach((category)=>{
                     if(info.category === category){
                         añadirCategoria = false;
@@ -33,10 +31,8 @@ export function Products() {
                 }
                 añadirCategoria = true;
                 i++;
-                console.log(arrayCategoriasProgreso)
             });
             setArrayCategory(arrayCategoriasProgreso)
-            console.log(arrayCategory)
         }
     },[dataBaseContext.dataProducts]);
 

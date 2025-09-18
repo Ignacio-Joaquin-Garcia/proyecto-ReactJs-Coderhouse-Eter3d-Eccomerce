@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Navbar } from "./features/Navbar"
 import { Footer } from "./static/Footer"
-
 import { HomeComponent } from "./pages/HomeComponent"
 import { Products } from './pages/Products';
 import { ItemDetailContainer } from "./pages/ItemDetailContainer";
@@ -12,11 +11,8 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { AgregarProdAdmin } from "./pages/AgregarProdAdmin";
 import { FinishOrder } from "./pages/FinishOrder";
-
 import { Toaster } from "react-hot-toast";
-
 function App() {
-  
   return (
       <BrowserRouter basename="/proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/">
         <Navbar/>
@@ -47,6 +43,4 @@ function App() {
       </BrowserRouter>
   )
 }
-
-
 export default App

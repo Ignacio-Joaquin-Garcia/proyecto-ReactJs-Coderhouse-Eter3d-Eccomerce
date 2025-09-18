@@ -113,4 +113,25 @@
             max-width: 5rem;
         }
     }
+    .agregar-prod-db{
+        width: 96%;
+        div{
+            div{
+                input{
+                    max-width: 25rem;
+                }
+            }
+        }
+    }
+    .actualizar-prod-db{
+        width: 96%;
+        .inputs-db-change{
+            input{
+                max-width: 25rem;
+            }
+        }
+        .buttons-submit{
+            flex-direction: column;
+        }
+    }
 }

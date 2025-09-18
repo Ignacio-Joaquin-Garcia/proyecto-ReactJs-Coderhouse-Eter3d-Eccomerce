@@ -86,6 +86,7 @@ export function Navbar() {
                 setMenuHamburguesa("none");
             }
         }
+        displayMenuHamburguesa()
         window.addEventListener("resize", ()=>{
             displayMenuHamburguesa()
         })
@@ -120,7 +121,7 @@ export function Navbar() {
                                 })}
                             </ul>
                         </li>
-                        <li><Link to="/">Contacto</Link></li>
+                        <li><Link to="/contact">Contacto</Link></li>
                         <li className='cuenta'>
                             <img src="assets/img/icons/user.svg" alt="user" />
                             <p>Cuenta <span>▽</span></p>

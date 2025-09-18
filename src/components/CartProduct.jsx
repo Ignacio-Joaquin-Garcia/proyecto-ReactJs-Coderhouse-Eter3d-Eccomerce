@@ -6,7 +6,7 @@ export function CartProduct(props) {
     const [price, setPrice] = useState(props.price);
     const [classTrashBin, setClassTrashBin] = useState("")
     const [classTrashCart, setClassTrashCart] = useState("")
-
+    
     const stockSelectedChange = (value)=>{
         if(value < 1){
             setClassTrashBin("alert-trash");
@@ -16,7 +16,6 @@ export function CartProduct(props) {
             const newStock = value;
             const newPrice = initialPrice * newStock;
             setPrice(newPrice);
-
             const dataChange = {
                 id: props.id,
                 productName: props.productName, 
@@ -25,8 +24,6 @@ export function CartProduct(props) {
                 price: newPrice,
                 stockSelected: newStock,
             }
-            
-
             props.onChange(dataChange)
         }
     };

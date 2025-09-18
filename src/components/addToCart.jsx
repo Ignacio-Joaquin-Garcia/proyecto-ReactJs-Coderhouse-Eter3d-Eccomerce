@@ -3,11 +3,9 @@ import { useState, useContext } from "react";
 import { ProductsContext } from "../context/ProductsContext"; 
 
 export function AddToCart(props){
-
     const [animation, setAnimation] = useState("");
     const [stockSelect, setStockSelect] = useState(1);
     const cartContext = useContext(ProductsContext);
-    
     const handleCartFirstTouch = ()=>{
         setAnimation("none");
     }
@@ -20,12 +18,10 @@ export function AddToCart(props){
             price: props.price * stockSelect,
             stockSelected: stockSelect,
         }
-        console.log(cartProduct);
         cartContext.addItemToCart(cartProduct);
         setStockSelect(1)
         setAnimation("");
     }
-
     const handleStockSelectP = ()=>{
         const newStock = stockSelect + 1;
         setStockSelect(newStock)
@@ -36,7 +32,6 @@ export function AddToCart(props){
             setStockSelect(newStock);
         }
     }
-
     return(
         <>
             <Button className={"reactivo50" + " " + animation} text="Agregar al Carrito" onClick={handleCartFirstTouch}/>

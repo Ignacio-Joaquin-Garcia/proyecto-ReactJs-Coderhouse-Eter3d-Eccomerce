@@ -1,11 +1,9 @@
 import { Input } from "../components/Input"
 import { Button } from "../components/Button"
 import { OrderFinished } from "./OrderFinished"
-
 import { UserDataContext } from "../context/UserDataContext"
 import { ProductsContext } from "../context/ProductsContext"
 import { useContext, useEffect, useState } from "react"
-
 import { createTicket } from "../firebase"
 import toast from "react-hot-toast"
 
@@ -29,7 +27,6 @@ export function FinishOrder() {
             setUser(usuario);
             setEmail(email);
         }
-        
     }, [userContext.userData])
 
     const handleFinishOrder = ()=>{
@@ -48,8 +45,8 @@ export function FinishOrder() {
                 <div className="finish-order">
                     <h2>Completar Encargo</h2>
                     <div>
-                        <Input value={contextUser} onChange={(e)=>{setUser(e.target.value)}} type="text" placeholder="Nombre"/>
-                        <Input value={contextEmail} onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Mail"/>
+                        <Input defaultValue={contextUser} onChange={(e)=>{setUser(e.target.value)}} type="text" placeholder="Nombre"/>
+                        <Input defaultValue={contextEmail} onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Mail"/>
                         <Input onChange={(e)=>{setPhone(e.target.value)}} type="tel" placeholder="Numero de Telefono"/>
                     </div>
                     <Button onClick={handleFinishOrder} text="Completar Encargo"/>
@@ -58,7 +55,6 @@ export function FinishOrder() {
                     <h3>Resumen</h3>
                     <div className="order-resume">
                         {cartContext.listaProds.map((task) => {
-                            console.log(task)
                             return(
                                 <div key={task.id} className="order-resume-prod">
                                     <img src={task.img} alt="imagen producto" />
@@ -67,7 +63,6 @@ export function FinishOrder() {
                                     <p>Precio: <span>${task.price}</span></p>
                                 </div>
                             )
-                            
                         })}
                         <div className="order-total">
                             <p>Total de la Compra: <span className="order-total-numbers">${cartContext.totalPrice}</span></p>

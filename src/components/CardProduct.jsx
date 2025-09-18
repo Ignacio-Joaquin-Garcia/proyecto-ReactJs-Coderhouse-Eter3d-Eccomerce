@@ -6,7 +6,6 @@ export function CardProduct(props){
     const handleOrder = ()=>{
         props.finishOrder(props.id, props.productName, Number(props.price), props.description, props.img)
     }
-
     return(
         <>
             <div className={"card-product" + " " + props.class}>

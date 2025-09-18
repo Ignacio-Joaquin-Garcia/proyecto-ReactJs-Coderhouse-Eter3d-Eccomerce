@@ -10,7 +10,6 @@ export function ProductsProvider(props){
     const [cartList, setCartList] = useState([]);
     const [totalPriceCart, setTotalPriceCart] = useState(0);
     
-    //Funciones del context
     const addItemToCart = (cartProduct)=>{
         const productPromise = new Promise((resolve, reject) => {
             cartList.forEach((item) => {

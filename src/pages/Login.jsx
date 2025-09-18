@@ -1,8 +1,6 @@
 import { Input } from "../components/Input"
 import { Button } from "../components/Button"
-
 import { UserDataContext } from "../context/UserDataContext";
-
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom"
@@ -25,19 +23,18 @@ export function Login() {
     },[]);
     
     const handleLogin = ()=>{
-        if(gmail === "admin@admin.com" && password === "adminAdmin"){
-            navigate("/agregar-prod");
-            toast.success("hola Admin");
-        }
         let couldEnter = false;
-        
         dataUsers.forEach(user => {
             if(gmail === user.email && password === user.contraseña){
                 toast.success("Bienvenido "+ user.usuario);
                 couldEnter = true;
-                const userLog = {usuario: user.usuario, email: user.email, contraseña: user.contraseña};
+                const userLog = {id:user.id, usuario: user.usuario, email: user.email, contraseña: user.contraseña};
                 userContext.logUser(userLog)
+            } 
+            if(user.id === "iQvBkge6R4NloJd4WSfc"){
+                navigate("/agregar-prod");
             }
+            
         });
         if(!couldEnter){
             toast.error("Datos Erroneos")

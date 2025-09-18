@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"
 import { DataBaseContext } from "../context/DataBaseContext";
 import { ProductListCards } from "../components/ProductListCards";
 
-
 export function ProductCategory(){
     const [data, setData] = useState([]);
     const PARAMS = useParams();

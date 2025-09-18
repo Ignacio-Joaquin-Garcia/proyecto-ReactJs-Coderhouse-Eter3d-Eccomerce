@@ -22,6 +22,7 @@
     border-radius: 3.125rem;
     padding: 1rem;
     margin: 1rem 0;
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
     input{
         width: 51px;
         grid-column-start: 0;
@@ -55,6 +56,7 @@
             grid-column-end: 3;
             grid-row-start: 0;
             grid-row-end: 1;
+            box-shadow: none;
             @include typo.font-tRegular;
         }
         .cart-description{

@@ -8,10 +8,9 @@ export function DbProvider(props){
     useEffect(()=>{
         async function loadData(){
             const data = await getDatabase();
-            setDataProducts(data)
+            setDataProducts(data);
         }
-        loadData()
-        
+        loadData();
     }, []);
 
     const datosContext = {

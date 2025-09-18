@@ -11,7 +11,8 @@ export function CustomOrder(){
         Hola ETER3d, mi nombre es: *${message.nombre}*, quisiera hacerle un encargo personalizado.
         \n Tipo Producto: *${message.tipoProducto}*
         \n Medidas: *${message.medidas}* 
-        \n Detalles: *${message.detalles}* 
+        \n Detalles: *${message.detalles}*
+        \n Aguardo Pronta respuesta 
         `;
         const mensajeCodificado = encodeURIComponent(mensaje);
         const urlWhatsApp = `https://api.whatsapp.com/send?phone=+5491137899844&text=${mensajeCodificado}`;

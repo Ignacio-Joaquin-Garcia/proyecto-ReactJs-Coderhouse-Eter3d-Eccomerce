@@ -8,7 +8,5 @@ export function OrderFinished(props) {
                 <p className="order-contact">Nos contactaremos contigo pronto!</p>
             </section>
         </section>
-        
-        
     )
 }

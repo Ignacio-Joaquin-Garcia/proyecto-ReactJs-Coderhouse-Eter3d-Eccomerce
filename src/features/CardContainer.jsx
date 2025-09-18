@@ -15,7 +15,6 @@ export function CardContainer(props){
         function cardResize(){
             if(window.innerWidth < 1400){
             setWidth(1);
-            console.log("ancho: "+window.innerWidth)
             } else if(window.innerWidth >=1400 && window.innerWidth < 1700){
                 setWidth(2);
             } else{

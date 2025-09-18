@@ -5,7 +5,7 @@ export const UserDataContext = createContext();
 export function UserContextProvider(props){
     const [userData, setUserData] = useState([])
     const logUser = (user)=>{
-        setUserData(user)
+        setUserData(user);
     }
 
     const dataContext = {

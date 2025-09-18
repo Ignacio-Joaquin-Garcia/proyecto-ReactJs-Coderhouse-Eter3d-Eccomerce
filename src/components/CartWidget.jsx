@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom"
 import { Badge } from "antd";
-
 import { ProductsContext } from "../context/ProductsContext";
 import { useContext } from "react";
 

@@ -5,12 +5,18 @@
 
 .agregar-prod-db{
     width: 65%;
-    height: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 5rem 0;
+    padding: 1rem;
     border-radius: 50px;
+    background-color: funciones.usarColor(fondoPrincipal);
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+    animation-name: componenteEntrada;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
     h1{
         @include typo.font-tSecundario;
         margin: 2rem 0;
@@ -32,8 +38,55 @@
                 background-color: funciones.usarColor(alternativa1);
                 color: funciones.usarColor(textoPrincipal);
                 border-radius: 10px;
+                max-width: 40rem;
                 margin: 1rem 1rem;
             }
         }
+    }
+}
+
+.actualizar-prod-db{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    margin-bottom: 4rem;
+    background-color: funciones.usarColor(fondoPrincipal);
+    box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+    animation-name: componenteEntrada;
+    animation-iteration-count: 1;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    h1{
+        @include typo.font-tSecundario;
+        margin: 2rem 0;
+    }
+    h2{
+        @include typo.font-tRegular;
+        text-decoration: underline;
+    }
+    p{
+        @include typo.font-tSmall;
+    }
+
+    .inputs-db-change{
+        display: flex;
+        flex-direction: column;
+        
+        input{
+            background-color: funciones.usarColor(alternativa1);
+            color: funciones.usarColor(textoPrincipal);
+            border-radius: 10px;
+            max-width: 40rem;
+            margin: 1rem 1rem;
+        }
+        
+    }
+    .buttons-submit{
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+        margin: 1rem;
     }
 }
