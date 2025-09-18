@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/', 
+  base: '/', 
   plugins: [react()],
 })
+//proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/
