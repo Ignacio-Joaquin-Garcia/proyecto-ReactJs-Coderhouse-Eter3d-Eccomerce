@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { AddToCart } from "../components/addToCart";
 import { Button } from "../components/Button";
-import { CarrouselAnt } from "../components/carrouselAnt";
+import { CarrouselAnt } from "../components/CarrouselAnt";
 
 export function ItemDetail(props){
     const handleOrder = ()=>{props.handleOrder(props.id, props.title, Number(props.price), props.description, props.image)}
