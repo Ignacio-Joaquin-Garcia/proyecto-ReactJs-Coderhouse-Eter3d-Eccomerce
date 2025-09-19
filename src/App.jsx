@@ -16,7 +16,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
       //proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/
-      <BrowserRouter basename="/proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/">
+      <BrowserRouter basename="/">
         <Navbar/>
           <Toaster toastOptions={{style: {
             border: '1px solid #D84315',
