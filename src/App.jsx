@@ -11,10 +11,12 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { AgregarProdAdmin } from "./pages/AgregarProdAdmin";
 import { FinishOrder } from "./pages/FinishOrder";
+import { AvailableColours } from "./pages/AvailableColours";
 import { Toaster } from "react-hot-toast";
 function App() {
   return (
-      <BrowserRouter basename="/">
+      //proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/
+      <BrowserRouter basename="/proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/">
         <Navbar/>
           <Toaster toastOptions={{style: {
             border: '1px solid #D84315',
@@ -38,6 +40,7 @@ function App() {
             <Route exact path="/register" element={<Register />}/>
             <Route exact path="/agregar-prod" element={<AgregarProdAdmin />}/>
             <Route exact path="/finish-order" element={<FinishOrder />}/>
+            <Route exact path="/available-colours" element={<AvailableColours />}/>
           </Routes>
         <Footer/>
       </BrowserRouter>

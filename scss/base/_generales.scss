@@ -35,7 +35,9 @@ a{
     @include typo.font-tRegular;
     color: funciones.usarColor(iconosELinks);
 }
-
+.ant-carousel{
+    width: 200px;
+}
 @keyframes componenteEntrada{
     from{
         opacity: 0;

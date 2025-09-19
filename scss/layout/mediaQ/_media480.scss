@@ -1,0 +1,189 @@
+@media (max-width: 480px){
+    .presentation{
+        .presentation-text{
+            flex-direction: column;
+            padding: 1rem;
+            div{
+                width: 100%;
+                margin-bottom: 2rem
+            }
+        }
+    }
+    .ingresa-izquierda{
+        animation-name: ingresaIzquierda;
+        animation-iteration-count: infinite;
+        animation-duration: 0.75s;
+        animation-timing-function: ease-in-out;
+    }
+    .desaparece-izquierda{
+        animation-name: desapareceIzquierda;
+        animation-iteration-count: infinite;
+        animation-duration: 0.75s;
+        animation-timing-function: ease-in-out;
+    }
+    .move-left{
+        animation-name: moveLeft;
+        animation-iteration-count: infinite;
+        animation-duration: 0.75s;
+        animation-timing-function: linear;
+    }
+    .move-right{
+        animation-name: moveRight;
+        animation-iteration-count: infinite;
+        animation-duration: 0.75s;
+        animation-timing-function: linear;
+    }
+    .ingresa-derecha{
+        animation-name: ingresaDerecha;
+        animation-iteration-count: infinite;
+        animation-duration: 0.75s;
+        animation-timing-function: ease-in-out;
+    }
+    .desaparece-derecha{
+        animation-name: desapareceDerecha;
+        animation-iteration-count: infinite;
+        animation-duration: 0.75s;
+        animation-timing-function: ease-in-out;
+    }
+
+    @keyframes ingresaIzquierda {
+        0%{
+            transform: translateY(0px);
+            scale: 1;
+            opacity: 0;
+        }
+        100%{
+            transform: translateY(-250px);
+            opacity: 1;
+            scale: 1;
+        }
+    }
+    @keyframes desapareceIzquierda {
+        0%{
+            transform: translateY(0px);
+            opacity: 1;
+            scale: 1;
+        }
+        100%{
+            transform: translateY(-250px);
+            opacity: 0;
+            scale: 1;
+        }
+    }
+    @keyframes moveLeft {
+        0%{
+            transform: translateY(0px);
+        }
+        100%{
+            transform: translateY(-275px);
+        }
+    }
+
+    @keyframes moveRight {
+        0%{
+            transform: translateY(0px);
+        }
+        100%{
+            transform: translateY(275px);
+        }
+    }
+    @keyframes ingresaDerecha{
+        0%{
+            transform: translateY(200px);
+            scale: 1;
+            opacity: 0;
+        }
+        100%{
+            transform: translateY(0px);
+            opacity: 1;
+            scale: 1;
+        }
+    }
+    @keyframes desapareceDerecha {
+        0%{
+            transform: translateY(0px);
+            opacity: 1;
+            scale: 1;
+        }
+        100%{
+            transform: translateY(-200px);
+            opacity: 0;
+            scale: 1;
+        }
+    }
+    footer{
+        display: flex;
+        flex-direction: column;
+        section:nth-child(1){
+            margin-bottom: 2rem;
+        }
+    }
+    .remarkable-products{
+        .card-container{
+            .arrow{
+                img{
+                    max-width: 4rem;
+                }
+            }
+        }
+        .links{
+            max-width: 16.8rem;
+        }
+    }
+    .card-product{
+        padding: 1rem;
+        border-radius: 15px;
+    }
+    .customOrder{
+        padding: 0.6rem;
+        div{
+            input{
+                max-width: 18.5rem;
+            }
+            textarea{
+                max-width: 18.5rem;
+            }
+        }
+        button{
+            max-width: 18.5rem;
+        }
+    }
+    .customOrder{
+        button{
+            max-width: 10rem !important; 
+        }
+    }
+    .redes{
+        max-width: 20rem;
+        div{
+            a{
+                img{
+                    max-width: 3.5rem;
+                }
+            }
+        }
+    }
+    .individual-product{
+        margin: 2rem 0.25rem;
+        .product-selection{
+            img{
+                min-width: 1rem;
+                max-width: 15rem;
+            }
+        }
+    }
+    .cart-product .cart-price{
+        width: 10px;
+    }
+    .order{
+        .resume{
+            .order-resume{
+                .order-resume-prod{
+                    h4{
+                        width: 110px;
+                    }
+                }
+            }
+        }
+    }
+}

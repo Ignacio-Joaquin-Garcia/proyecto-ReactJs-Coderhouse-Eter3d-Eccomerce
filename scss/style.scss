@@ -17,6 +17,7 @@
 @use "views/agregarProdAdmin";
 @use "views/finishOrder";
 @use "views/contact";
+@use "views/availableColours";
 
 /* Importamos componentes con Logica*/
 @use "components/button";
@@ -32,3 +33,4 @@
 /*  Correspondiente a las mediaQ  */
 @use "layout/mediaQ/media1240";
 @use "layout/mediaQ/media800";
+@use "layout/mediaQ/media480";

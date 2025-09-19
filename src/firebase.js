@@ -54,17 +54,28 @@ export async function getTickets(){
         querySnapshot.forEach((ticket)=>{
             tickets.push({id:ticket.id, ...ticket.data()});
         })
-        console.log(tickets)
         return tickets;
     } catch(er){
         toast.error("Error al traer los tickets " + er.message);
     }
 }
+export async function getColours(){
+    try{
+        const querySnapshot = await getDocs(collection(db, "colores"))
+        const data = []
+        querySnapshot.forEach((item)=>{
+            data.push({id:item.id, ...item.data()});
+        })
+        return data;
+    } catch (er){
+        toast.error("Error en la carga de datos: "+er.message);
+    }
+}
 //Funciones de Enviar Datos
-export async function sendData(title, description, category, price, image){
+export async function sendData(title, description, category, price, image, extraImages){
     toast.loading();
     const productCollection = collection(db, "productos");
-    const newItem = {title: title, description: description, category: category, price: price, image: image};
+    const newItem = {title: title, description: description, category: category, price: price, image: image, extraImages: extraImages};
     try{
         const docRef = await addDoc(productCollection, newItem);
         toast.dismiss()
@@ -72,6 +83,19 @@ export async function sendData(title, description, category, price, image){
     } catch(er){
         toast.dismiss();
         toast.error("Error en la creacion del producto"+ er.message);
+    }
+}
+export async function sendColor(colorName, colorImage){
+    toast.loading();
+    const colorCollection = collection(db, "colores");
+    const newItem = {colorName: colorName, colorImage: colorImage};
+    try{
+        const docRef = await addDoc(colorCollection, newItem);
+        toast.dismiss()
+        toast.success(`Color creado con exito con ID: ${docRef.id}`)
+    } catch(er){
+        toast.dismiss();
+        toast.error("Error en la creacion del color"+ er.message);
     }
 }
 export async function createUser(usuario, email, contraseña){
@@ -101,7 +125,7 @@ export async function createTicket(usuario, email, numeroTelefono, totalCompra, 
     }
 }
 //Funciones de Actualizar Datos
-export async function updateDataByName(nameFilter, title, description, category, price, image) {
+export async function updateDataByName(nameFilter, title, description, category, price, image, extraImages) {
     toast.loading();
     const collectionProducts = collection(db, "productos")
     const productCollectionFilterName = query(collectionProducts, where("title", "==", nameFilter));
@@ -111,6 +135,13 @@ export async function updateDataByName(nameFilter, title, description, category,
     if (category !== undefined){itemUpdate.category = category};
     if (price !== undefined){itemUpdate.price = price};
     if (image !== undefined){itemUpdate.image = image};
+    if (extraImages) {
+        itemUpdate.extraImages = {};
+        if (extraImages.image2 !== undefined) itemUpdate.extraImages.image2 = extraImages.image2;
+        if (extraImages.image3 !== undefined) itemUpdate.extraImages.image3 = extraImages.image3;
+        if (extraImages.image4 !== undefined) itemUpdate.extraImages.image4 = extraImages.image4;
+        if (extraImages.image5 !== undefined) itemUpdate.extraImages.image5 = extraImages.image5;
+    }
     try{
         const searchDocName = await getDocs(productCollectionFilterName);
         if (searchDocName.empty) {
@@ -128,7 +159,7 @@ export async function updateDataByName(nameFilter, title, description, category,
         toast.error("error al actualizar el dato " + er.message);
     }
 }
-export async function updateDataById(idFilter, title, description, category, price, image) {
+export async function updateDataById(idFilter, title, description, category, price, image, extraImages) {
     toast.loading();
     const productCollectionFilterId = doc(db, "productos", idFilter);
     const itemUpdate = {};
@@ -137,6 +168,10 @@ export async function updateDataById(idFilter, title, description, category, pri
     if (category !== undefined){itemUpdate.category = category};
     if (price !== undefined){itemUpdate.price = price};
     if (image !== undefined){itemUpdate.image = image};
+    if (extraImages.image2 !== undefined){itemUpdate.extraImages.image2 = extraImages.image2};
+    if (extraImages.image3 !== undefined){itemUpdate.extraImages.image3 = extraImages.imag3};
+    if (extraImages.image4 !== undefined){itemUpdate.extraImages.image4 = extraImages.image4};
+    if (extraImages.image5 !== undefined){itemUpdate.extraImages.image5 = extraImages.image5};
     try{
         await updateDoc(productCollectionFilterId, itemUpdate)
         toast.dismiss();
@@ -192,5 +227,26 @@ export async function deleteTicketById(id) {
     }catch(er){
         toast.dismiss()
         toast.error("Error al eliminar el producto " + er.message)
+    }
+}
+export async function deleteColorByName(name) {
+    toast.loading();
+    const colorProducts = collection(db, "colores")
+    const colorCollectionFilterName = query(colorProducts, where("colorName", "==", name));
+    try{
+        const searchDocName = await getDocs(colorCollectionFilterName);
+        if (searchDocName.empty) {
+            toast.dismiss();
+            toast.error("No se encontró color con ese nombre");
+            return 0;
+        }
+        for(const docs of searchDocName.docs){
+            await deleteDoc(docs.ref);
+            toast.dismiss();
+            toast.success(`Color ${docs.id} Eliminado con exito`);
+        }
+    }catch(er){
+        toast.dismiss()
+        toast.error("Error al eliminar el color " + er.message)
     }
 }

@@ -15,12 +15,14 @@
     max-height: 35.5rem;
     padding: 1.5rem;
     box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+    
     img{
         border-radius: 2.1875rem;
         width: 16.4375rem;
         height: 15.625rem;
         object-fit:contain;
     }
+    
     p:nth-child(2){
         @include typo.font-tRegular;
         color: funciones.usarColor(textoPrincipal);

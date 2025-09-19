@@ -12,6 +12,7 @@ export function Navbar() {
     const [userData, setUserData] = useState({});
     const [menuHamburguesa, setMenuHamburguesa] = useState("none");
     const [handleMenuH, setHandleMenuH] = useState("");
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const dataBaseContext = useContext(DataBaseContext)
     const userContext = useContext(UserDataContext)
 
@@ -78,22 +79,26 @@ export function Navbar() {
     useEffect(()=>{
         setUserData(userContext.userData);
     },[userContext.userData]);
+
     useEffect(()=>{
         function displayMenuHamburguesa(){
-            if(window.innerWidth < 800){
+            if(screenWidth < 800){
                 setMenuHamburguesa("hamburguesa");
             } else{
-                setMenuHamburguesa("none");
+                if(screenWidth >= 800){
+                    setMenuHamburguesa("none");
+                }
             }
         }
-        displayMenuHamburguesa()
-        window.addEventListener("resize", ()=>{
-            displayMenuHamburguesa()
-        })
-        return ()=>{
-            window.removeEventListener("resize", displayMenuHamburguesa);
+        function changueMenuHamburguesaByWidth(){
+            setScreenWidth(window.innerWidth)
         }
-    },[]);
+        displayMenuHamburguesa();
+        window.addEventListener("resize", changueMenuHamburguesaByWidth);
+        return ()=>{
+            window.removeEventListener("resize", changueMenuHamburguesaByWidth);
+        }
+    },[screenWidth]);
 
     const handleMenu = ()=>{
         if(handleMenuH === ""){
@@ -121,6 +126,7 @@ export function Navbar() {
                                 })}
                             </ul>
                         </li>
+                        <li className='color'><Link to="/available-colours">Colores Disponibles</Link></li>
                         <li><Link to="/contact">Contacto</Link></li>
                         <li className='cuenta'>
                             <img src="assets/img/icons/user.svg" alt="user" />
@@ -131,6 +137,7 @@ export function Navbar() {
                                 <li><Link to="/register">Creá tu Cuenta</Link></li>
                             </ul>
                         </li>
+                        
                         
                     </ul>
                     <CartWidget/>

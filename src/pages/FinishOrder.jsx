@@ -5,7 +5,6 @@ import { UserDataContext } from "../context/UserDataContext"
 import { ProductsContext } from "../context/ProductsContext"
 import { useContext, useEffect, useState } from "react"
 import { createTicket } from "../firebase"
-import toast from "react-hot-toast"
 
 export function FinishOrder() {
     const [purchaseStatus, setPurchaseStatus] = useState("")
@@ -29,14 +28,11 @@ export function FinishOrder() {
         }
     }, [userContext.userData])
 
-    const handleFinishOrder = ()=>{
-        if(user != "" && email != "" && phone != ""){
-            const purchaseStatu = createTicket(user, email, phone, cartContext.totalPrice, cartContext.totalQuantity, cartContext.listaProds)
-            setPurchaseStatus(purchaseStatu);
-            cartContext.clearCart();
-        } else{
-            toast.error("Debe llenar todos los campos primero⌨️!")
-        }
+    const handleFinishOrder = (e)=>{
+        e.preventDefault()
+        const purchaseStatu = createTicket(user, email, phone, cartContext.totalPrice, cartContext.totalQuantity, cartContext.listaProds)
+        setPurchaseStatus(purchaseStatu);
+        cartContext.clearCart();
     }
 
     return (
@@ -44,12 +40,12 @@ export function FinishOrder() {
             <section className={purchaseStatus === "" ? "order" : "none"}>
                 <div className="finish-order">
                     <h2>Completar Encargo</h2>
-                    <div>
+                    <form action="" onSubmit={handleFinishOrder}>
                         <Input defaultValue={contextUser} onChange={(e)=>{setUser(e.target.value)}} type="text" placeholder="Nombre"/>
                         <Input defaultValue={contextEmail} onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Mail"/>
-                        <Input onChange={(e)=>{setPhone(e.target.value)}} type="tel" placeholder="Numero de Telefono"/>
-                    </div>
-                    <Button onClick={handleFinishOrder} text="Completar Encargo"/>
+                        <Input onChange={(e)=>{setPhone(e.target.value)}} type="tel" pattern="(\s?\d{2}\s?\d{4}-?\d{4}" placeholder="Numero de Telefono (+54 11 1234-5678)"/>
+                        <Button type="submit" text="Completar Encargo"/>
+                    </form>
                 </div>
                 <div className="resume">
                     <h3>Resumen</h3>

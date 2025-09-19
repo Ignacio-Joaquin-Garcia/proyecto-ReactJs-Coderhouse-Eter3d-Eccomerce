@@ -3,8 +3,6 @@
 @use "../utilities/funciones";
 @use "../base/typo";
 
-
-
 header{
     position: sticky;
     top: 0;
@@ -16,7 +14,7 @@ header{
     width: 100%;
     background-color: funciones.usarColor(fondoPrincipal);
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.365);
-
+    opacity: 0.9;
     img{
         grid-column: 1;
         grid-row-start: 1;
@@ -27,6 +25,13 @@ header{
         max-width: 8.75rem;
         border-radius: 50%;
         padding: .625rem;
+        &:hover{
+            scale: 1.8;
+            transition: 3s;
+            transform: translate(0px, 40px);
+            opacity: 1;
+            box-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+        }
     }
     div{
         grid-column-start: 2;
@@ -42,24 +47,25 @@ header{
                 grid-column-start: 1;
                 grid-column-end: 5;
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(5, 1fr);
                 grid-template-rows: 1fr;
                 list-style: none;
                 align-items: center;
             }
-            @for $i from 1 through 3{
+            @for $i from 1 through 4{
                 .lista-principal li:nth-child(#{$i}){
                     grid-column: #{$i};
                     text-align: center;
                 }
             }
-            .lista-principal li:nth-child(4){
-                grid-column: 6;
+            .lista-principal li:nth-child(5){
+                grid-column-start: 5;
+                grid-column-end: 6;
                 text-align: center;
             }
-            .lista-principal li:nth-child(5){
-                grid-column-start: 7;
-                grid-column-end: 9;
+            .lista-principal li:nth-child(6){
+                grid-column-start: 6;
+                grid-column-end: 7;
                 text-align: center;
             }
             

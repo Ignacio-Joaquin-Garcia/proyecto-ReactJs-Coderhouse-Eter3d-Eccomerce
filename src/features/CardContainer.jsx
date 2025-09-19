@@ -85,32 +85,47 @@ export function CardContainer(props){
         };
     }
     const handleShowProductP = ()=>{
-        const iCount = i + 1;
-        setI(iCount); 
-        const nextProducts = productData.slice(iCount-1, iCount + width).map((product, index) => {
-            let className = "";
-            if (index < width) {
-                if (index === 0){
-                    className = "desaparece-izquierda";
-                } else{
-                    className = "move-left"; 
+        function dataShow(iCount){
+            setI(iCount); 
+            const nextProducts = productData.slice(iCount-1, iCount + width).map((product, index) => {
+                let className = "";
+                if (index < width) {
+                    if (index === 0){
+                        className = "desaparece-izquierda";
+                    } else{
+                        className = "move-left"; 
+                    }
+                } else {
+                className = "ingresa-izquierda"; 
                 }
-            } else {
-            className = "ingresa-izquierda"; 
-            }
-            return {
-            ...product,
-            class: className,
-            };
-        });
-        setProductShow(nextProducts)
-        setTimeout(()=>{
-            const nextProducts = productData.slice(iCount, iCount + width).map(product => ({
-            ...product,
-            class: ""
-            }));
+                return {
+                ...product,
+                class: className,
+                };
+            });
+            console.log(productData)
+            console.log(productData.length)
+            
             setProductShow(nextProducts)
-        },650)
+            setTimeout(()=>{
+                const nextProducts = productData.slice(iCount, iCount + width).map(product => ({
+                ...product,
+                class: ""
+                }));
+                setProductShow(nextProducts)
+            },650)
+        }
+        if(i > (productData.length - (width-1))){
+            console.log(i)
+            console.log(width)
+            const iCount = 0;
+            dataShow(iCount)
+        } else{
+            console.log(i)
+            const iCount = i + 1;
+            dataShow(iCount)
+        }
+        
     }
 
     return(

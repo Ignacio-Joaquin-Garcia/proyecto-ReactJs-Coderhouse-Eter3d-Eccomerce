@@ -27,7 +27,7 @@ export function ItemDetailContainer(){
 
     return (
         <>
-            {data ? (<ItemDetail id={data.id} image={data.image} title={data.title} price={data.price} description={data.description} handleOrder={handleOrder} />) : (<p>Cargando...</p>)}
+            {data ? (<ItemDetail id={data.id} image={data.image} extraImages={data.extraImages} title={data.title} price={data.price} description={data.description} handleOrder={handleOrder} />) : (<p>Cargando...</p>)}
         </>
     );
 }

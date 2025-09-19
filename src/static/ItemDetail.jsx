@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
-
 import { AddToCart } from "../components/addToCart";
 import { Button } from "../components/Button";
+import { CarrouselAnt } from "../components/carrouselAnt";
 
 export function ItemDetail(props){
     const handleOrder = ()=>{props.handleOrder(props.id, props.title, Number(props.price), props.description, props.image)}
@@ -9,8 +9,10 @@ export function ItemDetail(props){
     return(
         <section className="individual-product">
             <div className="product-selection">
-                <img src={props.image} alt="Foto Adjunta al Producto" />
-                <div>
+                <div className="carrousel">
+                    <CarrouselAnt img={props.image} extraImages={props.extraImages}></CarrouselAnt>
+                </div>
+                <div className="info-detail">
                     
                         <h2>{props.title}</h2>
                         <p>${props.price}</p>
@@ -55,7 +57,7 @@ export function ItemDetail(props){
                 <p>{props.description}</p>
             </div>
             <div className="product-questions">
-                <img src="/proyecto-ReactJs-Coderhouse-Eter3d-Eccomerce/assets/img/icons/github.svg" alt="Github Icono"/>
+                <img src="assets/img/icons/github.svg" alt="Github Icono"/>
                 <p>Si tenes dudas o queres hacer alguna modificacion no dudes en</p>
                 <Button text="" className="links" type="" onClick={undefined}><Link to={`/contact`}>Contactarnos</Link></Button>
             </div>

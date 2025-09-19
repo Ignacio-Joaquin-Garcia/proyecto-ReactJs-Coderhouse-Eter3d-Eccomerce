@@ -55,9 +55,6 @@
         }
         
     }
-    .card-product{
-
-    }
     .customOrder{
         div{
             textarea{
@@ -132,6 +129,36 @@
         }
         .buttons-submit{
             flex-direction: column;
+        }
+    }
+    .individual-product{
+        align-self: center;
+        margin: 2.5rem 0;
+        .product-selection{
+            flex-direction: column;
+            img{
+                min-width: 6rem;
+                max-width: 24rem;
+            }
+        }
+    }
+    .cart-product .cart-info .cart-description {
+        max-width: 14.25rem;
+    }
+    .cart-product-container{
+        gap: 1.25rem;
+    }
+    .cart-product .cart-price{
+        width: 150px;
+    }
+    .order{
+        flex-direction: column;
+        .finish-order{
+            width: 80%;
+        }
+        .resume{
+            margin-top: 2rem;
+            width: 80%;
         }
     }
 }
