@@ -7,6 +7,7 @@ import { UserContextProvider } from './context/UserDataContext.jsx'
 
 import App from './App.jsx'
 import '../css/style.css'
+import { ColorsProvider } from './context/ColorsContext.jsx'
 
 const DOMElement = document.getElementById('root')
 const VDOMElement = createRoot(DOMElement)
@@ -16,7 +17,9 @@ VDOMElement.render(
     <DbProvider>
       <ProductsProvider>
         <UserContextProvider>
-          <App /> 
+          <ColorsProvider>
+            <App />
+          </ColorsProvider>
         </UserContextProvider>
       </ProductsProvider>
     </DbProvider>

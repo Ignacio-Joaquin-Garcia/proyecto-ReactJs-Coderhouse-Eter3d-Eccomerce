@@ -225,7 +225,7 @@ export function AgregarProdAdmin() {
                 <h1>Ordenes de compra</h1>
                 {   
                     tickets.map((ticket)=>{
-                        return <TicketCard key={ticket.id} id={ticket.id} totalCompra={ticket.totalCompra} usuario={ticket.usuario} email={ticket.email} telefono={ticket.numeroTelefono} compra={ticket.compra.listaProducts}/>
+                        return <TicketCard key={ticket.id} id={ticket.id} totalCompra={ticket.totalCompra} usuario={ticket.usuario} email={ticket.email} telefono={ticket.numeroTelefono} compra={ticket.compra.listaProducts} colores={ticket.colores}/>
                     })
                 }
             </div>

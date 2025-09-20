@@ -110,7 +110,7 @@ export function Navbar() {
 
     return (
         <header className={(scrollBar) + (menuHamburguesa === "none" ? "" : " nav-hamburguesa")}>
-            <img src="assets/img/logo.png" alt="Logo" />
+            <img className='logo' src="assets/img/logo.png" alt="Logo" />
             <div className="search">
                 <input placeholder='Buscar Productos' type="text" />
             </div>

@@ -3,9 +3,12 @@ import { Button } from "../components/Button"
 import { OrderFinished } from "./OrderFinished"
 import { UserDataContext } from "../context/UserDataContext"
 import { ProductsContext } from "../context/ProductsContext"
+import { ColorsContext } from "../context/ColorsContext"
 import { useContext, useEffect, useState } from "react"
 import { createTicket } from "../firebase"
-
+import { Select } from "antd"
+import toast from "react-hot-toast"
+const { Option } = Select;
 export function FinishOrder() {
     const [purchaseStatus, setPurchaseStatus] = useState("")
     const [user, setUser] = useState("");
@@ -15,6 +18,8 @@ export function FinishOrder() {
     const [contextUser, setContextUser] = useState("");
     const [contextEmail, setContextEmail] = useState("");
 
+    const [selectedValues, setSelectedValues] = useState({});
+    const colorsContext = useContext(ColorsContext)
     const cartContext = useContext(ProductsContext)
     const userContext = useContext(UserDataContext);
     useEffect(()=>{
@@ -30,7 +35,17 @@ export function FinishOrder() {
 
     const handleFinishOrder = (e)=>{
         e.preventDefault()
-        const purchaseStatu = createTicket(user, email, phone, cartContext.totalPrice, cartContext.totalQuantity, cartContext.listaProds)
+
+        const faltanColores = cartContext.listaProds.some(
+            (task) => !selectedValues[task.productName]
+        );
+        if (faltanColores) {
+            toast.error("Tenés que seleccionar un color para todos los productos.");
+            return;
+        }
+
+        const colores = selectedValues;
+        const purchaseStatu = createTicket(user, email, phone, cartContext.totalPrice, cartContext.totalQuantity, cartContext.listaProds, colores)
         setPurchaseStatus(purchaseStatu);
         cartContext.clearCart();
     }
@@ -55,6 +70,21 @@ export function FinishOrder() {
                                 <div key={task.id} className="order-resume-prod">
                                     <img src={task.img} alt="imagen producto" />
                                     <h4>{task.productName}</h4>
+                                    <Select
+                                    value={selectedValues[task.productName]} 
+                                    onChange={(value) => setSelectedValues({
+                                        ...selectedValues,
+                                        [task.productName]: value
+                                    })}
+                                    placeholder="Seleccioná una opción"
+                                    style={{ width: 200 }}
+                                    >
+                                        {colorsContext.colors.map((op) => (
+                                            <Option key={op.id} value={op.colorName}>
+                                            {op.colorName}
+                                            </Option>
+                                        ))}
+                                    </Select>
                                     <p className="order-quantity">Cantidad: {task.stockSelected}</p>
                                     <p>Precio: <span>${task.price}</span></p>
                                 </div>

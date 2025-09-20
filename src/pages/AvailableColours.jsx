@@ -1,17 +1,15 @@
-import { useState, useEffect } from "react";
-import { getColours } from "../firebase";
+import { useState, useEffect, useContext } from "react";
+import { ColorsContext } from "../context/ColorsContext";
 import { ColourCard } from "../components/ColourCard";
-import toast from "react-hot-toast";
 export function AvailableColours(){
     const [coloursData, setColoursData] = useState([]);
+    const colorsContext = useContext(ColorsContext)
     useEffect(()=>{
         const gettingData = async ()=>{
-            toast.loading("Cargando Colores")
-            setColoursData(await getColours())
-            toast.dismiss()
+            setColoursData(colorsContext.colors);
         }
         gettingData()
-    },[]);
+    },[colorsContext.colors]);
 
     return(
         <main className="available-colours">

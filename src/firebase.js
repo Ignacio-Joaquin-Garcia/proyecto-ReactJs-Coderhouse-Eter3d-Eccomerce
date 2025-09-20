@@ -110,10 +110,10 @@ export async function createUser(usuario, email, contraseña){
         toast.error("Error en la creacion del usuario " + er.message);
     }
 }
-export async function createTicket(usuario, email, numeroTelefono, totalCompra, cantidadProductos, listaProducts){
+export async function createTicket(usuario, email, numeroTelefono, totalCompra, cantidadProductos, listaProducts, colores){
     toast.loading()
     const ticketCollection = collection(db, "tickects");
-    const newTicket = {usuario: usuario, email: email, numeroTelefono: numeroTelefono, totalCompra: totalCompra, cantidadProductos: cantidadProductos, compra:{listaProducts}, fechaTicket: serverTimestamp()};
+    const newTicket = {usuario: usuario, email: email, numeroTelefono: numeroTelefono, totalCompra: totalCompra, cantidadProductos: cantidadProductos, compra:{listaProducts}, colores: colores, fechaTicket: serverTimestamp()};
     try{
         const docRef = await addDoc(ticketCollection, newTicket);
         toast.dismiss()

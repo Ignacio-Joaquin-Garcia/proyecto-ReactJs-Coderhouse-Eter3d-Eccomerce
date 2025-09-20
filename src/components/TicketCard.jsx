@@ -23,7 +23,15 @@ export function TicketCard(props) {
             
             <div>
                 {
-                    compra.map((product)=>(<CartProduct key={product.id} id={product.id} productName={product.productName} description={product.description} img={product.img} price={product.price} stockSelected={product.stockSelected}/>))
+                    compra.map((product)=>{
+                        
+                        return(
+                            <div key={product.id}>
+                                <CartProduct id={product.id} productName={product.productName} description={product.description} img={product.img} price={product.price} stockSelected={product.stockSelected}/>
+                                <p>Color Seleccionado: <span>{props.colores[product.productName]}</span></p>
+                            </div>
+                        )
+                    })
                 }
             </div>
             <Button onClick={handleDelete} text="Eliminar Ticket"/>
